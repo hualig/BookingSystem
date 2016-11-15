@@ -5,23 +5,23 @@
  */
 package bookingsystem;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class Plane {
 
     private String destination;
     private String planeID;
-    private HashMap<SeatNo, Customer> seatMap;
-    private int numberOfSeats;
+    //private SeatList  seatList;
+    //private CustomerList seatMap;
     private boolean flightStatus;
-    private int availableNoFirstClassSeat;
-    private int availableNoEconomyClassSeat;
+    private int noFirstClassSeat;
+    private int noEconomyClassSeat;
 
-    public Plane(String destination, String planeID, HashMap<SeatNo, Customer> customerMap, int numberOfSets) {
-        this.destination = destination;
-        this.planeID = planeID;
-        this.seatMap = seatMap;
-        this.numberOfSeats = numberOfSeats;
+    public Plane() {
+        
+        
+       
     }
 
     public boolean isFlight() {
@@ -40,20 +40,18 @@ public abstract class Plane {
         return planeID;
     }
 
-    public HashMap<SeatNo, Customer> getSeatMap() {
-        return seatMap;
-    }
+    
 
     public int getAvailableNoFirstClassSeat() {
-        return availableNoFirstClassSeat;
+        return noFirstClassSeat;
     }
 
     public int getAvailableNoEconomyClassSeat() {
-        return availableNoEconomyClassSeat;
+        return noEconomyClassSeat;
     }
 
     public int getTotalNoAvailableSeat() {
-        return availableNoFirstClassSeat + availableNoEconomyClassSeat;
+        return noFirstClassSeat + noEconomyClassSeat;
 
     }
 }
