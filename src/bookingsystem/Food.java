@@ -18,4 +18,11 @@ public class Food {
         return price;
     }
 
+    @Override
+    public String toString() {
+        return name + ", price: " + price + "SEK";
+    }
+    
+    
+
 }

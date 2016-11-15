@@ -14,4 +14,14 @@ public abstract class FoodMenu {
         list.add(food);
     }
 
+    public Food getFoodAtIndex(int i) {
+        return list.get(i);
+    }
+    
+    public int getListSize(){
+        return list.size();
+    }
+    
+    
+
 }
