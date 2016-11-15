@@ -1,4 +1,4 @@
-package airplane;
+package bookingsystem;
 
 public class Food {
 

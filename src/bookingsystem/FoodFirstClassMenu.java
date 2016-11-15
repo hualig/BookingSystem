@@ -1,4 +1,4 @@
-package airplane;
+package bookingsystem;
 
 import java.util.ArrayList;
 import java.util.List;

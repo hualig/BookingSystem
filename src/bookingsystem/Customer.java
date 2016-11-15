@@ -5,6 +5,7 @@
  */
 package bookingsystem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public class Customer {
     private String iD;
     private double totalPrice;
     private double totalPriceOfFood;
-    private List<Food> myFoodList = new List<Food>();
+    private List<Food> myFoodList = new ArrayList<>();
     private int seatNumber = 0;
 
     public String getName() {
