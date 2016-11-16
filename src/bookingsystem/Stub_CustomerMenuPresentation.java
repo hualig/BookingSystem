@@ -10,21 +10,21 @@ import java.util.Scanner;
 //
 public class Stub_CustomerMenuPresentation {
 
-    static boolean inMenu = true;
-    static Scanner sc = new Scanner(System.in);
-    static String userInput;
-    static String userSelection;
-    static int counter;
-    static FoodInit runFoodInit = new FoodInit();
-    static FoodMenu chosenMenu;
-    static Customer currentCustomer = FoodMenuTestMain.customer1;
+     boolean inMenu = true;
+     Scanner sc = new Scanner(System.in);
+     String userInput;
+     String userSelection;
+     int counter;
+     FoodInit runFoodInit = new FoodInit();
+     FoodMenu chosenMenu;
+     Customer currentCustomer = FoodMenuTestMain.customer1;
 
     public Stub_CustomerMenuPresentation() {
         runFoodInit.runInit();
         counter = 0;
     }
 
-    public static void doStuff() {
+    public  void doStuff() {
 
         while (inMenu) {
 
@@ -43,12 +43,12 @@ public class Stub_CustomerMenuPresentation {
                     try {
                         System.out.println("Please select a food of Your choice to be served during Your flight.");
                         chosenMenu = runFoodInit.economyClassMenu;
-                        for (int i = 0; i < runFoodInit.economyClassMenu.getListSize(); i++) {
-                            System.out.println((i + 1) + ": " + runFoodInit.economyClassMenu.getFoodAtIndex(i));
+                        for (int i = 0; i < chosenMenu.getListSize(); i++) {
+                            System.out.println((i + 1) + ": " + chosenMenu.getFoodAtIndex(i));
                         }
                         userInput = sc.nextLine();
                         userSelection = userInput;
-                        if (Integer.parseInt(userSelection) <= 0 || Integer.parseInt(userSelection) > runFoodInit.economyClassMenu.getListSize()) {
+                        if (Integer.parseInt(userSelection) <= 0 || Integer.parseInt(userSelection) > chosenMenu.getListSize()) {
                             System.out.println("Bad input. This number is not on the list.");
                             break;
                         }
@@ -57,7 +57,7 @@ public class Stub_CustomerMenuPresentation {
                         break;
                     }
 
-                    currentCustomer.addToMyFoodList(runFoodInit.economyClassMenu.getFoodAtIndex(Integer.parseInt(userSelection) - 1));
+                    currentCustomer.addToMyFoodList(chosenMenu.getFoodAtIndex(Integer.parseInt(userSelection) - 1));
                     System.out.println(currentCustomer.getMyFoodList().get(counter));
                     counter++;
                     break;
@@ -65,12 +65,12 @@ public class Stub_CustomerMenuPresentation {
                     try {
                         System.out.println("Please select a food of Your choice to be served during Your flight.");
                         chosenMenu = runFoodInit.firstClassMenu;
-                        for (int i = 0; i < runFoodInit.firstClassMenu.getListSize(); i++) {
-                            System.out.println((i + 1) + ": " + runFoodInit.firstClassMenu.getFoodAtIndex(i));
+                        for (int i = 0; i < chosenMenu.getListSize(); i++) {
+                            System.out.println((i + 1) + ": " + chosenMenu.getFoodAtIndex(i));
                         }
                         userInput = sc.nextLine();
                         userSelection = userInput;
-                        if (Integer.parseInt(userSelection) <= 0 || Integer.parseInt(userSelection) > runFoodInit.economyClassMenu.getListSize()) {
+                        if (Integer.parseInt(userSelection) <= 0 || Integer.parseInt(userSelection) > chosenMenu.getListSize()) {
                             System.out.println("Bad input. This number is not on the list.");
                             break;
                         }
@@ -78,7 +78,7 @@ public class Stub_CustomerMenuPresentation {
                         System.out.println("Bad input. Use only numbers.");
                         break;
                     }
-                    currentCustomer.addToMyFoodList(runFoodInit.firstClassMenu.getFoodAtIndex(Integer.parseInt(userSelection) - 1));
+                    currentCustomer.addToMyFoodList(chosenMenu.getFoodAtIndex(Integer.parseInt(userSelection) - 1));
                     System.out.println(currentCustomer.getMyFoodList().get(counter));
                     counter++;
 

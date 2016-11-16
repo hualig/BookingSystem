@@ -10,19 +10,22 @@ package bookingsystem;
  * @author User
  */
 public class FoodMenuTestMain {
+
     static Customer customer1 = new Customer();
+    
+    
+//    static FoodMenu foodmenu = new FoodMenu();
+//    static Food food1 = new Food("Lasagne", 79.99);
+
     static Stub_CustomerMenuPresentation run = new Stub_CustomerMenuPresentation();
-    
-    
-    public FoodMenuTestMain(){
-        
-    }
-    
-    
-    
-    
-    public static void main (String[] args){
+    FoodInit runFoodInit = new FoodInit();
+
+    public static void main(String[] args) {
+//        foodmenu.addFoodItem(food1);
+//        Food foundFood = foodmenu.findFoodByName("Lasagne");
+//        System.out.println(foundFood);
+
         run.doStuff();
     }
-    
+
 }

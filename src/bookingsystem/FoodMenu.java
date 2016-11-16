@@ -1,10 +1,14 @@
 package bookingsystem;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public abstract class FoodMenu {
+public class FoodMenu {
 
-    List<Food> list;
+    
+    List<Food> list = new ArrayList<>();
+    double foodPrice;
 
     public List<Food> getList() {
         return list;
@@ -17,11 +21,29 @@ public abstract class FoodMenu {
     public Food getFoodAtIndex(int i) {
         return list.get(i);
     }
-    
-    public int getListSize(){
+
+    public int getListSize() {
         return list.size();
     }
+
+    public double calculateTotalPrice() {
+        for (Food next : list) {
+            foodPrice += next.price;
+        }
+        return foodPrice;
+    }
     
-    
+   
+
+    public Food findFoodByName(String name) {
+        
+        Food foodToLookFor = new Food(name, 0.0);
+        int i = list.indexOf(foodToLookFor);
+        if (i<0){
+            System.out.println("No food found");
+        }
+        return list.get(i);
+        
+    }
 
 }
