@@ -9,11 +9,12 @@ package bookingsystem;
  *
  * @author User
  */
-public class Main {
+public class FoodMenuTestMain {
+    static Customer customer1 = new Customer();
     static Stub_CustomerMenuPresentation run = new Stub_CustomerMenuPresentation();
     
     
-    public Main(){
+    public FoodMenuTestMain(){
         
     }
     

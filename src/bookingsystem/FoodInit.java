@@ -2,8 +2,10 @@ package bookingsystem;
 
 public class FoodInit {
 
-    FoodEconomyClassMenu economyClassMenu;
-    FoodFirstClassMenu firstClassMenu;
+    //FoodEconomyClassMenu economyClassMenu;
+    FoodMenu economyClassMenu;
+    //FoodFirstClassMenu firstClassMenu;
+    FoodMenu firstClassMenu;
 
     Food lasagne;
     Food pasta = new Food("Pasta Carbonara", 89.90);
