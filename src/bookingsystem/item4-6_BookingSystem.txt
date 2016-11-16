@@ -1,3 +1,8 @@
 start to register the customer
 Assign the seat to customer
 List the foodmenu for customer //DONE
+
+
+foodMenu sorting
+foodMenu searchBYName
+foodMenu calculate totalPrice //DONE
