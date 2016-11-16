@@ -9,13 +9,13 @@ package bookingsystem;
  *
  * @author User
  */
-public class BookingSystem {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+public class EconomyClassSeat extends Seat {
+    
+    public EconomyClassSeat() {
         
+        price = 5000.0;
+        number = 0;
+        type = SeatType.EconomyClass;
         
     }
     
