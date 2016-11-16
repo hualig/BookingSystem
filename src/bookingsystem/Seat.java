@@ -19,7 +19,7 @@ public class Seat {
         return price;
     }
 
-    public Integer getNumber() {
+    public int getNumber() {
         return number;
     }
     

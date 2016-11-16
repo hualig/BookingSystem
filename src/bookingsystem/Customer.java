@@ -21,7 +21,7 @@ public class Customer {
     private double ticketPrice;
     private double foodPrice;
     private List<Food> myFoodList = new ArrayList<>();
-    private Integer seatNumber = 0;
+    private int seatNumber = 0;
 
     public Customer(){
         
@@ -60,7 +60,7 @@ public class Customer {
         return myFoodList;
     }
 
-    public Integer getSeatNumber() {
+    public int getSeatNumber() {
         return seatNumber;
     }
     
@@ -80,6 +80,14 @@ public class Customer {
 
     public void setSeatNumber(Integer seatNumber) {
         this.seatNumber = seatNumber;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setiD(String iD) {
+        this.iD = iD;
     }
 
     
