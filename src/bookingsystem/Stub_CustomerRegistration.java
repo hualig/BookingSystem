@@ -10,8 +10,13 @@ import java.util.Scanner;
 //
 //
 public class Stub_CustomerRegistration { 
-
+    
+    //This will probably be initialized in some public location so that
+    //it can be accessed throughout the application
     static public List<Customer> customerRecords = new ArrayList<>();
+    
+    
+    static Customer newCustomer = new Customer();
     static boolean registering = true;
     static Scanner sc = new Scanner(System.in);
     static String userInput;
@@ -23,10 +28,14 @@ public class Stub_CustomerRegistration {
         while (registering){
             Customer newCustomer = new Customer();
             System.out.println("Welcome");
+            
+            //setName and setID needs to be implemented
+            //
             System.out.println("Please enter your name:");
-            userInput/*newCustomer.setName*/ = sc.nextLine();
+            //newCustomer.setName(sc.nextLine());
             System.out.println("Please enter your ID-no.:");
-            userInput/*newCustomer.setID*/ = sc.nextLine();
+            //newCustomer.setID(sc.nextLine());
+            
             customerRecords.add(newCustomer);
             System.out.println("Thank you. Have a nice day!");
             registering = false;
