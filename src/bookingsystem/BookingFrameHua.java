@@ -18,9 +18,10 @@ public class BookingFrameHua extends javax.swing.JFrame {
      */
     SeatList seatList = new SeatList(5, 5);
     Customer newCustomer = new Customer();
+
     public BookingFrameHua() {
         initComponents();
-        
+
     }
 
     /**
@@ -92,7 +93,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jLabel3)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,48 +298,44 @@ public class BookingFrameHua extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-         String name;
+        String name;
         String iD;
-        System.out.println(nameTextField.getText().equals(""));
+
         name = nameTextField.getText();
         iD = iDTextField.getText();
-        
+
         if (name.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Name and person number can't be empty!");
-        }else
-        {
-        
-        System.out.println((name.equals("")));
-        
-        newCustomer.setName(name);
-        newCustomer.setiD(iD);
-        jTextArea1.append(newCustomer.toString()+"123123\n");
-        
-        
-        reviewPanel.setVisible(true);
-        registerPanel.setVisible(false);
-        jTextArea2.setText(null);
-        jTextArea2.append("            Name: " + newCustomer.getName() + "\n");
-        jTextArea2.append("   Person number: " + newCustomer.getiD()+ "\n");
-        jTextArea2.append("   Flight number: " + newCustomer.getName() + "\n");
-        jTextArea2.append("     Seat number: " + newCustomer.getSeatNumber()+ "\n");
-        jTextArea2.append("Price for ticket: " + newCustomer.getTicketPrice()+ "\n");
-        jTextArea2.append("   Food reserved: " + newCustomer.getMyFoodList().toString()+ "\n");
-        jTextArea2.append("  Price for food: " + newCustomer.getFoodPrice()+ "\n");
-        jTextArea2.append("------------------------------------------------\n");
-        jTextArea2.append("           Total: " + newCustomer.getTotalPrice()+ "\n");
-        
-        }                                     
-        
+        } else {
+
+            newCustomer.setName(name);
+            newCustomer.setiD(iD);
+            jTextArea1.append(newCustomer.toString());
+
+            reviewPanel.setVisible(true);
+            registerPanel.setVisible(false);
+            jTextArea2.setText(null);
+            jTextArea2.append("            Name: " + newCustomer.getName() + "\n");
+            jTextArea2.append("   Person number: " + newCustomer.getiD() + "\n");
+            jTextArea2.append("   Flight number: " + newCustomer.getName() + "\n");
+            jTextArea2.append("     Seat number: " + newCustomer.getSeatNumber() + "\n");
+            jTextArea2.append("Price for ticket: " + newCustomer.getTicketPrice() + "\n");
+            jTextArea2.append("   Food reserved: " + newCustomer.getMyFoodList().toString() + "\n");
+            jTextArea2.append("  Price for food: " + newCustomer.getFoodPrice() + "\n");
+            jTextArea2.append("------------------------------------------------\n");
+            jTextArea2.append("           Total: " + newCustomer.getTotalPrice() + "\n");
+
+        }
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         registerPanel.setVisible(true);
-         reviewPanel.setVisible(false);
+        registerPanel.setVisible(true);
+        reviewPanel.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
