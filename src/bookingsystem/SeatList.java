@@ -34,7 +34,36 @@ public class SeatList {
         }
     }
     
-    public List<Seat> getList(){
+    public List<Seat> getList() {
         return seatList;
+    }
+    
+    public Seat getAvailableSeatFC() throws SeatNotFoundException{
+        for (Seat seat : seatList){
+            if (seat.getType().equals(SeatType.FirstClass)&&seat.getStatus()==false){
+                return seat;
+            }
+        }
+        throw new SeatNotFoundException();
+    }
+    
+    public Seat getAvailableSeatEC() throws SeatNotFoundException{
+        for (Seat seat : seatList){
+            if (seat.getType().equals(SeatType.EconomyClass)&&seat.getStatus()==false){
+                return seat;
+            }
+        }
+        throw new SeatNotFoundException();
+    }
+    
+    public Seat searchSeat(int seatNo)throws SeatNotFoundException{
+         for (Seat seat : seatList){
+             if (seat.getNumber()== seatNo){
+                 return seat;
+             }
+         }
+         throw new SeatNotFoundException();
+         
+        
     }
 }
