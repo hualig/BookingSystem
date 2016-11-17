@@ -1,7 +1,10 @@
 package bookingsystem;
 
 import java.util.Objects;
-
+/**
+ *
+ * @author Mikael Tolfström
+ */
 public class Food implements Comparable<Food>{
 
     String name;

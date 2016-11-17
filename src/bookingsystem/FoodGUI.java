@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bookingsystem;
 
 import java.util.Collections;
@@ -11,7 +6,7 @@ import javax.swing.DefaultListModel;
 
 /**
  *
- * @author User
+ * @author Mikael Tolfström
  */
 public class FoodGUI extends javax.swing.JFrame {
 
@@ -272,7 +267,6 @@ public class FoodGUI extends javax.swing.JFrame {
 
         String selectedMenuItem = (String) currentMenuCombox.getSelectedItem();
         customersSelection = chosenMenu.findFoodByName(selectedMenuItem);
-        System.out.println(customersSelection);
         jTextArea1.setText(chosenMenu.findFoodByName(currentMenuCombox.getSelectedItem().toString()).getDescription());
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(currentMenuCombox.getSelectedItem().toString()));
         jLabel3.setText(chosenMenu.findFoodByName(currentMenuCombox.getSelectedItem().toString()).getPrice().toString());

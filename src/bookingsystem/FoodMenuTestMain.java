@@ -7,7 +7,7 @@ package bookingsystem;
 
 /**
  *
- * @author User
+ * @author Mikael Tolfström
  */
 public class FoodMenuTestMain {
     //Leave this uncommented. Used for both tests

@@ -1,5 +1,8 @@
 package bookingsystem;
-
+/**
+ *
+ * @author Mikael Tolfström
+ */
 public class FoodInit {
 
     FoodMenu economyClassMenu;

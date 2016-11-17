@@ -5,7 +5,10 @@ package bookingsystem;
 import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+/**
+ *
+ * @author Mikael Tolfström
+ */
 //copy-paste into booking UI
 //
 //
