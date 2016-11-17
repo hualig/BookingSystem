@@ -2,14 +2,23 @@ package bookingsystem;
 
 import java.util.Objects;
 
-public class Food {
+public class Food implements Comparable<Food>{
 
     String name;
     Double price;
+    String description;
     
     public Food(String name, Double price){
         this.name = name;
         this.price = price;
+    }
+    
+    public void setDescription(String description){
+        this.description = description;
+    }
+    
+    public String getDescription(){
+        return description;
     }
 
     public String getName() {
@@ -22,7 +31,7 @@ public class Food {
 
     @Override
     public String toString() {
-        return name + ", price: " + price + "SEK";
+        return name + ",  " + price + "SEK";
     }
 
     @Override
@@ -49,7 +58,15 @@ public class Food {
         return true;
     }
     
-    
+    @Override
+    public int compareTo(Food o) {
+        int comp = this.name.compareTo(o.getName());
+        if (comp == 0) {
+            return this.price.compareTo(o.getPrice());
+        } else {
+            return comp;
+        }
+    }
     
     
 

@@ -2,6 +2,7 @@ package bookingsystem;
 //
 //
 
+import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -25,6 +26,8 @@ public class Stub_CustomerMenuPresentation {
     }
 
     public  void doStuff() {
+        
+        
 
         while (inMenu) {
 
@@ -43,6 +46,7 @@ public class Stub_CustomerMenuPresentation {
                     try {
                         System.out.println("Please select a food of Your choice to be served during Your flight.");
                         chosenMenu = runFoodInit.economyClassMenu;
+                        Collections.sort(chosenMenu.getList());
                         for (int i = 0; i < chosenMenu.getListSize(); i++) {
                             System.out.println((i + 1) + ": " + chosenMenu.getFoodAtIndex(i));
                         }
@@ -65,6 +69,7 @@ public class Stub_CustomerMenuPresentation {
                     try {
                         System.out.println("Please select a food of Your choice to be served during Your flight.");
                         chosenMenu = runFoodInit.firstClassMenu;
+                        Collections.sort(chosenMenu.getList());
                         for (int i = 0; i < chosenMenu.getListSize(); i++) {
                             System.out.println((i + 1) + ": " + chosenMenu.getFoodAtIndex(i));
                         }
