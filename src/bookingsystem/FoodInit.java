@@ -32,21 +32,21 @@ public class FoodInit {
 
     public void runInit() {
         
-        lasagne.setDescription("Great lasagne! Made in Italy!");
-        pasta.setDescription("Superb carbonara from top chefs!");
-        meatballs.setDescription("Savoury meatballs from sweden.");
-        bbqHamburger.setDescription("Angus beef with sweet barbeque sauce.");
-        regHamburger.setDescription("Hamburger with cheese, lettuce, tomatoes and ketchup.");
-        english.setDescription("A proper english breakfast with bacon, fried tomatoes, toast and scrambled FairTrade eggs.");
-        kebab.setDescription("Just like your local cornershops at 3 A.M, a saturday morning!");
+        lasagne.setDescription      ("Great lasagne!\nMade in Italy!");
+        pasta.setDescription        ("Superb carbonara\nfrom top chefs!");
+        meatballs.setDescription    ("Savoury meatballs\nfrom sweden.");
+        bbqHamburger.setDescription ("Angus beef with\nsweet barbeque\nsauce.");
+        regHamburger.setDescription ("Hamburger with\ncheese, lettuce,\ntomatoes and\nketchup.");
+        english.setDescription      ("A proper english\nbreakfast with\nbacon, fried\ntomatoes, toast and\nscrambled\nFairTrade eggs.");
+        kebab.setDescription        ("Just like your\nlocal cornershops\nat 3 A.M, on a\nsaturday morning!");
         
-        firstClassLasagne.setDescription("Great lasagne! Made in Italy!");
-        firstClassPasta.setDescription("Superb carbonara from top chefs!");
-        firstClassMeatballs.setDescription("Savoury meatballs from sweden.");
-        firstClassBbqHamburger.setDescription("Angus beef with sweet barbeque sauce.");
-        firstClassRegHamburger.setDescription("Hamburger with cheese, lettuce, tomatoes and ketchup.");
-        firstClassEnglish.setDescription("A proper english breakfast with bacon, fried tomatoes, toast and scrambled FairTrade eggs.");
-        firstClassKebab.setDescription("Just like your local cornershops at 3 A.M, a saturday morning!");
+        firstClassLasagne.setDescription        ("Great lasagne!\nMade in Italy!");
+        firstClassPasta.setDescription          ("Superb carbonara\nfrom top chefs!");
+        firstClassMeatballs.setDescription      ("Savoury meatballs\nfrom sweden.");
+        firstClassBbqHamburger.setDescription   ("Angus beef with\nsweet barbeque\nsauce.");
+        firstClassRegHamburger.setDescription   ("Hamburger with\ncheese, lettuce,\ntomatoes and\nketchup.");
+        firstClassEnglish.setDescription        ("A proper english\nbreakfast with\nbacon, fried\ntomatoes, toast and\nscrambled\nFairTrade eggs.");
+        firstClassKebab.setDescription          ("Just like your\nlocal cornershops\nat 3 A.M, on a\nsaturday morning!");
         
         
         
