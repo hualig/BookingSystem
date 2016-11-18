@@ -19,7 +19,19 @@ public class SeatListTest {
         SeatList seatList = new SeatList(5, 5);
         
         try {
-            System.out.println(seatList.searchSeat(3));
+            //System.out.print(seatList.getList());
+            System.out.println(seatList.getAvailableSeatFC());
+        } catch (SeatNotFoundException ex) {
+            System.out.println("Seat not available");
+        }
+        try {
+            System.out.print(seatList.getAvailableSeatEC());
+        } catch (SeatNotFoundException ex) {
+            System.out.println("Seat not available");
+        }
+        
+        try {
+            System.out.println(seatList.searchSeat(10));
         } catch (SeatNotFoundException ex) {
             System.out.println("Seat not found");
         }
