@@ -12,7 +12,7 @@ public abstract class Plane {
 
     private String destination;
     private String planeID;
-    //private SeatList  seatList;
+    private SeatList  seatList;
     //private CustomerList seatMap;
     private boolean flightStatus;
     private int noFirstClassSeat;

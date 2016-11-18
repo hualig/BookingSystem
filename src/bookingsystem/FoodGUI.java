@@ -134,6 +134,7 @@ public class FoodGUI extends javax.swing.JFrame {
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
@@ -284,6 +285,7 @@ public class FoodGUI extends javax.swing.JFrame {
         for (int i = 0; i < currentCustomer.getMyFoodList().size(); i++) {
             currentCustomerFoodList.addElement(currentCustomer.getMyFoodList().get(i).toString());
         }
+        System.out.println(currentCustomer.getMyFoodList().size());
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
