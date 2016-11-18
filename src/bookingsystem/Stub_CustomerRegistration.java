@@ -3,7 +3,10 @@ package bookingsystem;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+/**
+ *
+ * @author Mikael Tolfström
+ */
 //
 //
 //copy-paste into booking UI

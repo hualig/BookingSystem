@@ -7,7 +7,7 @@ package bookingsystem;
 
 /**
  *
- * @author User
+ * @author Mikael Tolfström
  */
 public class FoodMenuTestMain {
     //Leave this uncommented. Used for both tests
@@ -22,8 +22,8 @@ public class FoodMenuTestMain {
     
     //Uncomment to test Stub_CustomerMenuPresentation
     //
-//    static Stub_CustomerMenuPresentation run = new Stub_CustomerMenuPresentation();
-//    FoodInit runFoodInit = new FoodInit();
+    static Stub_CustomerMenuPresentation run = new Stub_CustomerMenuPresentation();
+    FoodInit runFoodInit = new FoodInit();
 
     public static void main(String[] args) {
         
@@ -37,7 +37,7 @@ public class FoodMenuTestMain {
         
         //Uncomment to test Stub_CustomerMenuPresentation
         //
-//        run.doStuff();
+        run.doStuff();
     }
 
 }

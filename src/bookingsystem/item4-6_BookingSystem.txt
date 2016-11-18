@@ -1,3 +1,8 @@
+/**
+ *
+ * @author Mikael Tolfström
+ */
+
 start to register the customer
 Assign the seat to customer
 List the foodmenu for customer //DONE
