@@ -71,6 +71,18 @@ public class Customer {
         
     }
     
+    public void removeFromMyFoodList(Food food){
+        myFoodList.remove(food);
+        foodPrice -=food.getPrice();
+    }
+    
+    public void clearMyFoodList(){
+        for (int i = myFoodList.size()-1; i > -1 ; i--) {
+            myFoodList.remove(i);
+        }
+        foodPrice = 0.0;
+    }
+    
     public void assignSeatNumber(Seat seat) {
         
         seatNumber = seat.getNumber();
