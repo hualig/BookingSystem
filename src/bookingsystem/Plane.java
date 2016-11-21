@@ -7,21 +7,19 @@ package bookingsystem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
-public abstract class Plane {
+public class Plane {
 
-    private String destination;
-    private String planeID;
-    private SeatList  seatList;
-    //private CustomerList seatMap;
-    private boolean flightStatus;
-    private int noFirstClassSeat;
-    private int noEconomyClassSeat;
+    String destination;
+    String planeID;
+    TicketList ticketList;
+    boolean flightStatus;
+    int noFirstClassSeat;
+    int noEconomyClassSeat;
 
     public Plane() {
-        
-        
-       
+
     }
 
     public boolean isFlight() {
@@ -40,7 +38,9 @@ public abstract class Plane {
         return planeID;
     }
 
-    
+    public TicketList getTicketList() {
+        return ticketList;
+    }
 
     public int getAvailableNoFirstClassSeat() {
         return noFirstClassSeat;
