@@ -72,7 +72,6 @@ public class FoodGUI extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(620, 450));
         setMinimumSize(new java.awt.Dimension(620, 450));
         setResizable(false);
 
