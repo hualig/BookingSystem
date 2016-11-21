@@ -47,8 +47,6 @@ public class FoodGUI extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         removeItemFromListButton = new javax.swing.JButton();
         clearListButton = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
@@ -99,17 +97,6 @@ public class FoodGUI extends javax.swing.JFrame {
 
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel8.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 164, 37, -1));
-
-        jButton3.setText("jButton3");
-        jPanel8.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 241, 37, -1));
-
         removeItemFromListButton.setText("Remove");
         removeItemFromListButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         removeItemFromListButton.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +112,7 @@ public class FoodGUI extends javax.swing.JFrame {
                 clearListButtonActionPerformed(evt);
             }
         });
-        jPanel8.add(clearListButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 356, 90, 40));
+        jPanel8.add(clearListButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 90, 40));
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Item price"));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -144,9 +131,9 @@ public class FoodGUI extends javax.swing.JFrame {
         orderListTotalPriceLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         orderListTotalPriceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         orderListTotalPriceLabel.setText(Double.toString(currentCustomer.getFoodPrice()));
-        jPanel10.add(orderListTotalPriceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 138, -1));
+        jPanel10.add(orderListTotalPriceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 24, 150, 18));
 
-        foodPanel.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 386, 170, 50));
+        foodPanel.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 385, 170, 55));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -196,23 +183,25 @@ public class FoodGUI extends javax.swing.JFrame {
         menuAmountPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Amount"));
         menuAmountPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        plusButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         plusButton.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        plusButton.setLabel("+");
+        plusButton.setLabel(">");
         plusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 plusButtonActionPerformed(evt);
             }
         });
-        menuAmountPanel.add(plusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 13, 13));
+        menuAmountPanel.add(plusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 25, 8, 40));
 
+        minusButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minusButton.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        minusButton.setLabel("-");
+        minusButton.setLabel("<");
         minusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 minusButtonActionPerformed(evt);
             }
         });
-        menuAmountPanel.add(minusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 13, 13));
+        menuAmountPanel.add(minusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 25, 8, 40));
 
         amountToBuy.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         amountToBuy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -268,12 +257,12 @@ public class FoodGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(foodPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(foodPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+            .addComponent(foodPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -336,11 +325,6 @@ public class FoodGUI extends javax.swing.JFrame {
         orderListItemPriceLabel.setText("");
         orderListTotalPriceLabel.setText(Double.toString(currentCustomer.getFoodPrice()));
     }//GEN-LAST:event_removeItemFromListButtonActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        //New Line
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void minusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minusButtonActionPerformed
         JFrame frame = new JFrame();
@@ -431,8 +415,6 @@ public class FoodGUI extends javax.swing.JFrame {
     private javax.swing.JLabel amountToBuy;
     private javax.swing.JButton clearListButton;
     private javax.swing.JPanel foodPanel;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
