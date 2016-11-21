@@ -9,16 +9,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Plane {
+public class Flight {
 
     String destination;
     String planeID;
     TicketList ticketList;
-    boolean flightStatus;
+    boolean flightStatus = false;
     int noFirstClassSeat;
     int noEconomyClassSeat;
 
-    public Plane() {
+    public Flight() {
 
     }
 
@@ -36,6 +36,10 @@ public class Plane {
 
     public String getPlaneID() {
         return planeID;
+    }
+    
+    public void setPlaneID(String planeID) {
+        this.planeID = planeID;
     }
 
     public TicketList getTicketList() {

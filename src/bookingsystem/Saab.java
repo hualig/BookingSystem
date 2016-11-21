@@ -11,7 +11,7 @@ import java.util.HashMap;
  *
  * @author User
  */
-public class Saab extends Plane {
+public class Saab extends Flight {
 
 
 

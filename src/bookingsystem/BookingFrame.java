@@ -5,32 +5,36 @@
  */
 package bookingsystem;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author User
  */
-public class BookingFrameHua extends javax.swing.JFrame {
+public class BookingFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form BookingFrameHua
      */
     private Ticket ticket;
-    
+
     private Customer newCustomer = new Customer();
     private SeatType typeChosed;
-    
-    private Plane customerPlane = new Plane();
-    private Plane saab001;
-    private Plane saab002;
-    private Plane saab003;
 
-    static Customer customer1 = new Customer();
+    private Flight customerPlane = new Flight();
+
+    private List<Flight> planeList = new ArrayList<>();
+    private Flight saab001;
+    private Flight saab002;
+    private Flight saab003;
+
     FoodInit runFoodInit = new FoodInit();
     DefaultComboBoxModel currentMenuCombox = new DefaultComboBoxModel();
     DefaultListModel<String> currentCustomerFoodList = new DefaultListModel<>();
@@ -42,7 +46,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
     //Just change the value of currentCustomer to whatever customer comes from the previous booking step
     Customer currentCustomer = newCustomer;
 
-    public BookingFrameHua() {
+    public BookingFrame() {
         runFoodInit.runInit();
         initCustomComponents();
 
@@ -50,8 +54,14 @@ public class BookingFrameHua extends javax.swing.JFrame {
         jComboBox1.setSelectedIndex(0);
 
         saab001 = new Saab();
+        saab001.setPlaneID("SAAB0001");
+        planeList.add(saab001);
         saab002 = new Saab();
+        saab002.setPlaneID("SAAB0002");
+        planeList.add(saab002);
         saab003 = new Saab();
+        saab003.setPlaneID("SAAB0003");
+        planeList.add(saab003);
 
     }
 
@@ -65,7 +75,12 @@ public class BookingFrameHua extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton5 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        startPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton11 = new javax.swing.JButton();
+        bookPanel = new javax.swing.JPanel();
+        infoPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
@@ -136,7 +151,47 @@ public class BookingFrameHua extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel14.setLayout(new java.awt.CardLayout());
+
+        startPanel1.setPreferredSize(new java.awt.Dimension(978, 584));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel8.setText("Welcome to SAAB");
+
+        jButton11.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton11.setText("Start");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout startPanel1Layout = new javax.swing.GroupLayout(startPanel1);
+        startPanel1.setLayout(startPanel1Layout);
+        startPanel1Layout.setHorizontalGroup(
+            startPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(startPanel1Layout.createSequentialGroup()
+                .addGap(324, 324, 324)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(343, 343, 343))
+            .addGroup(startPanel1Layout.createSequentialGroup()
+                .addGap(448, 448, 448)
+                .addComponent(jButton11)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        startPanel1Layout.setVerticalGroup(
+            startPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(startPanel1Layout.createSequentialGroup()
+                .addGap(187, 187, 187)
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
+                .addComponent(jButton11)
+                .addGap(265, 265, 265))
+        );
+
+        jPanel14.add(startPanel1, "card3");
+
+        infoPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Flight information"));
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -155,22 +210,22 @@ public class BookingFrameHua extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setText("Welcome to SAAB");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
+        infoPanel.setLayout(infoPanelLayout);
+        infoPanelLayout.setHorizontalGroup(
+            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(infoPanelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel3)
                 .addContainerGap(111, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        infoPanelLayout.setVerticalGroup(
+            infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -182,6 +237,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
         containPanel.setLayout(new java.awt.CardLayout());
 
         registerPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        registerPanel.setPreferredSize(new java.awt.Dimension(600, 560));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Register"));
 
@@ -216,7 +272,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(428, Short.MAX_VALUE)
+                .addContainerGap(430, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4))
@@ -250,7 +306,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(iDLabel)
                     .addComponent(iDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
@@ -277,6 +333,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
         containPanel.add(registerPanel, "card2");
 
         planePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        planePanel.setPreferredSize(new java.awt.Dimension(600, 560));
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Flight and Class"));
 
@@ -356,7 +413,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
                         .addComponent(jRadioButton2)
                         .addComponent(jRadioButton1))
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(412, Short.MAX_VALUE))
+                .addContainerGap(367, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -402,6 +459,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
         containPanel.add(planePanel, "card2");
 
         foodContainPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        foodContainPanel.setPreferredSize(new java.awt.Dimension(600, 560));
 
         foodPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -488,7 +546,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
                 .addComponent(removeItemFromListButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                 .addComponent(jButton7)
                 .addGap(90, 90, 90)
                 .addComponent(clearListButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -587,6 +645,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
 
         jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jTextArea3.setEditable(false);
         jTextArea3.setColumns(20);
         jTextArea3.setLineWrap(true);
         jTextArea3.setRows(5);
@@ -771,6 +830,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
         containPanel.add(foodContainPanel, "card2");
 
         reviewPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        reviewPanel.setPreferredSize(new java.awt.Dimension(600, 560));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Review"));
 
@@ -785,6 +845,11 @@ public class BookingFrameHua extends javax.swing.JFrame {
         });
 
         jButton2.setText("Confirm and Pay");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
@@ -798,7 +863,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 137, Short.MAX_VALUE)
+                .addGap(0, 372, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2))
@@ -815,7 +880,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -842,6 +907,35 @@ public class BookingFrameHua extends javax.swing.JFrame {
 
         containPanel.add(reviewPanel, "card2");
 
+        javax.swing.GroupLayout bookPanelLayout = new javax.swing.GroupLayout(bookPanel);
+        bookPanel.setLayout(bookPanelLayout);
+        bookPanelLayout.setHorizontalGroup(
+            bookPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 989, Short.MAX_VALUE)
+            .addGroup(bookPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bookPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(containPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        bookPanelLayout.setVerticalGroup(
+            bookPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(bookPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bookPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(bookPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(containPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        jPanel14.add(bookPanel, "card2");
+
+        getContentPane().add(jPanel14, java.awt.BorderLayout.PAGE_START);
+
         jMenu1.setText("BookingSystem");
 
         jMenuItem1.setText("Exit");
@@ -855,22 +949,6 @@ public class BookingFrameHua extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(containPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(containPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -898,11 +976,13 @@ public class BookingFrameHua extends javax.swing.JFrame {
             newCustomer.setiD(iD);
             jTextArea1.append(newCustomer.toString());
 
+            for (Flight next : planeList) {
+                planePanel.add(new JLabel(next.planeID));
+            }
             registerPanel.setVisible(false);
             planePanel.setVisible(true);
             foodContainPanel.setVisible(false);
             reviewPanel.setVisible(false);
-
 
         }
 
@@ -951,8 +1031,8 @@ public class BookingFrameHua extends javax.swing.JFrame {
 
         String selectedMenuItem = (String) currentMenuCombox.getSelectedItem();
         customersSelection = chosenMenu.findFoodByName(selectedMenuItem);
-        jTextArea1.setText(chosenMenu.findFoodByName(currentMenuCombox.getSelectedItem().toString()).getDescription());
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(currentMenuCombox.getSelectedItem().toString()));
+        jTextArea3.setText(chosenMenu.findFoodByName(currentMenuCombox.getSelectedItem().toString()).getDescription());
+        infoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(currentMenuCombox.getSelectedItem().toString()));
         menuItemPriceLabel.setText(chosenMenu.findFoodByName(currentMenuCombox.getSelectedItem().toString()).getPrice().toString());
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -1025,7 +1105,7 @@ public class BookingFrameHua extends javax.swing.JFrame {
                 ticket = customerPlane.getTicketList().searchAvailableTicket(typeChosed);
                 ticket.setCustomer(newCustomer);
             } catch (SeatNotFoundException ex) {
-                JOptionPane.showMessageDialog(this, "There is no available seat in chosen class. Please contact Customer Service");
+                JOptionPane.showMessageDialog(this, "There is no available seat in chosen class. Would you like to choose another class?");
             }
             registerPanel.setVisible(false);
             planePanel.setVisible(false);
@@ -1050,16 +1130,32 @@ public class BookingFrameHua extends javax.swing.JFrame {
         foodContainPanel.setVisible(false);
         reviewPanel.setVisible(true);
         jTextArea2.setText(null);
-            jTextArea2.append("            Name: " + ticket.getCustomer().getName() + "\n");
-            jTextArea2.append("   Person number: " + ticket.getCustomer().getiD() + "\n");
-            jTextArea2.append("   Flight number: " + customerPlane.getPlaneID() + "\n");
-           jTextArea2.append("     Seat number: " + ticket.getSeatNumber() + "\n");
-            jTextArea2.append("Price for ticket: " + ticket.getPrice() + "\n");
-            jTextArea2.append("   Food reserved: " + ticket.getCustomer().getMyFoodList().toString() + "\n");
-            jTextArea2.append("  Price for food: " + ticket.getCustomer().getFoodPrice() + "SEK  \n");
-            jTextArea2.append("------------------------------------------------\n");
-            jTextArea2.append("           Total: " + ticket.getTotalPrice() + "SEK \n");
+        jTextArea2.append("            Name: " + ticket.getCustomer().getName() + "\n");
+        jTextArea2.append("   Person number: " + ticket.getCustomer().getiD() + "\n");
+        jTextArea2.append("   Flight number: " + customerPlane.getPlaneID() + "\n");
+        jTextArea2.append("     Seat number: " + ticket.getSeatNumber() + "\n");
+        jTextArea2.append("Price for ticket: " + ticket.getPrice() + "\n");
+        jTextArea2.append("   Food reserved: " + ticket.getCustomer().getMyFoodList().toString() + "\n");
+        jTextArea2.append("  Price for food: " + ticket.getCustomer().getFoodPrice() + "SEK  \n");
+        jTextArea2.append("------------------------------------------------\n");
+        jTextArea2.append("           Total: " + ticket.getTotalPrice() + "SEK \n");
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        startPanel1.setVisible(true);
+        bookPanel.setVisible(false);
+        
+        
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        startPanel1.setVisible(false);
+        bookPanel.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_jButton11ActionPerformed
 
     private void initCustomComponents() {
         Collections.sort(chosenMenu.getList());
@@ -1085,20 +1181,21 @@ public class BookingFrameHua extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BookingFrameHua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BookingFrameHua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BookingFrameHua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BookingFrameHua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BookingFrameHua().setVisible(true);
+                new BookingFrame().setVisible(true);
             }
         });
     }
@@ -1109,14 +1206,17 @@ public class BookingFrameHua extends javax.swing.JFrame {
     private javax.swing.JButton addToCartButton;
     private javax.swing.JLabel amountToBuy;
     private javax.swing.JPanel amountToBuyPanel;
+    private javax.swing.JPanel bookPanel;
     private javax.swing.JButton clearListButton;
     private javax.swing.JPanel containPanel;
     private javax.swing.JPanel foodContainPanel;
     private javax.swing.JPanel foodPanel;
     private javax.swing.JLabel iDLabel;
     private javax.swing.JTextField iDTextField;
+    private javax.swing.JPanel infoPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1133,13 +1233,14 @@ public class BookingFrameHua extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1171,5 +1272,6 @@ public class BookingFrameHua extends javax.swing.JFrame {
     private javax.swing.JPanel registerPanel;
     private javax.swing.JButton removeItemFromListButton;
     private javax.swing.JPanel reviewPanel;
+    private javax.swing.JPanel startPanel1;
     // End of variables declaration//GEN-END:variables
 }
