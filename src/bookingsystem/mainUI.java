@@ -1,21 +1,30 @@
 package bookingsystem;
 
+import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class mainUI {
 
-    //static CustomerList customerList = new CustomerList();
-    static Customer customer = new Customer();
     static FoodInit foodInit = new FoodInit();
     static AirplaneRunner runPlane = new AirplaneRunner();
+    //Instantiate more initializers
+
+    //static CustomerList customerList = new CustomerList();
+    static Customer customer = new Customer();
+    static Flight flight = new Flight();
+    static Ticket ticket = new Ticket();
+    static TicketList ticketList = new TicketList();
+    static FoodMenu chosenMenu = new FoodMenu();
+
     static boolean running = true;
     static Scanner scanner = new Scanner(System.in);
     static String userInput;
-    //Add more initializers
+    static int counter = 0;
 
     public mainUI() {
 
+        //flight.setDestination("Oslo");
         foodInit.runInit();
         //run more initializers
     }
@@ -26,7 +35,7 @@ public class mainUI {
             runMainApplication();
 
         } while (running);
-        System.out.println("running = false");
+        System.out.println("running = false. Main menu is exited. Only Airplanerunner remains open");
 
     }
 
@@ -56,20 +65,22 @@ public class mainUI {
 
                 case "2":
                     running = false;
+                    System.out.println(running);
                     break;
                 default:
                     System.out.println("Bad input, try again.");
+                    break;
 
             }
         } catch (InputMismatchException ime) {
-            System.out.println("Bad input, try again.");
+            System.out.println("MismatchException");
         }
     }
 
     static void runRegisterCustomer(boolean bool) {
         boolean registering = bool;
         while (registering) {
-            System.out.println("Please input your name.");
+            System.out.println("Please input your name. You can also choose to 'Exit'");
             userInput = scanner.nextLine().toUpperCase();
             switch (userInput) {
                 case "EXIT":
@@ -78,7 +89,7 @@ public class mainUI {
                 default:
                     customer.setName(userInput);
                     System.out.println("Your name is " + customer.getName());
-                    System.out.println("Please input your ID#.");
+                    System.out.println("Please input your ID#. You can also choose to 'Exit'");
                     userInput = scanner.nextLine().toUpperCase();
                     switch (userInput) {
                         case "EXIT":
@@ -86,71 +97,172 @@ public class mainUI {
                             break;
                         default:
                             customer.setiD(userInput);
-                            System.out.println("Hello");
-
+                            System.out.println("Your ID is: " + customer.getiD());
+                            registering = false;
                             runSelectPlane(true);
-
                             break;
                     }
                     break;
             }
-
         }
-        runMainApplication();
-
     }
 
     static void runSelectPlane(boolean bool) {
         System.out.println("runSelectPlane");
         boolean selectingPlane = bool;
         while (selectingPlane) {
-            System.out.println("Show list of planes");
-            System.out.println("Plane 1");
-            System.out.println("Plane 2 (Unavailable)");
-            System.out.println("Plane 3");
-            System.out.println("Please select a plane or select 'Exit' or 'Back'");
+            System.out.println("Show list of flights");
+            System.out.println("1. Flight 1 : "/* + flight.getDestination()*/);
+            System.out.println("2. Flight 2 (Unavailable)");
+            System.out.println("3. Flight 3 (Unavailable)");
+            System.out.println("'Back', back to previous menu");
+            System.out.println("'Exit', exit to main menu.");
             userInput = scanner.nextLine().toUpperCase();
             switch (userInput) {
                 case "BACK":
+                    selectingPlane = false;
                     runRegisterCustomer(true);
                     break;
                 case "EXIT":
                     selectingPlane = false;
                     break;
-                default:
-                    System.out.println("You've selected plane no: " + userInput);
-                    runSelectClass();
+                case "1":
+                    System.out.println("You have selected Flight #1");
+                    flight.ticketList.getList().add(ticket);
+                    runSelectClass(true);
                     selectingPlane = false;
+                    break;
+                default:
+                    System.out.println("You need to select a valid flight");
                     break;
             }
         }
-        runRegisterCustomer(false); //This takes you back to runCustomer with bool = false, which should take you straight back to main menu.
-
     }
 
-    static void runSelectClass() {
+    static void runSelectClass(boolean bool) {
         System.out.println("runSelectClass");
-        try {
-            System.out.println("Sleeping");
-            Thread.sleep(5000);
-        } catch (Exception e) {
+        boolean selectingClass = bool;
+        while (selectingClass) {
+            System.out.println("Please select Class, 'Back' or 'Exit'");
+            System.out.println("1. First Class");
+            System.out.println("2. Economy Class");
+            System.out.println("'Back', back to previous menu");
+            System.out.println("'Exit', exit to main menu.");
+            userInput = scanner.nextLine().toUpperCase();
+            switch (userInput) {
+                case "BACK":
+                    runSelectPlane(true);
+                    selectingClass = false;
+                    break;
+                case "EXIT":
+                    selectingClass = false;
+                    break;
+                case "1":
+                    flight.ticketList.getList().get(counter).setSeatType(SeatType.FirstClass);
+                    selectingClass = false;
+                    runAssignSeat(true);
+                    break;
+                case "2":
+                    flight.ticketList.getList().get(counter).setSeatType(SeatType.EconomyClass);
+                    selectingClass = false;
+                    runAssignSeat(true);
+                default:
+            }
         }
+    }
+
+    static void runAssignSeat(boolean bool) {
+        System.out.println("runAssignSeat");
+        counter = counter + 1; //probably wrong
+        flight.ticketList.getList().get(counter).setSeatNumber(Integer.toString(counter));
+        System.out.println("Ticket.setSeatNumber(" + counter + ")");
+        runSelectFood(true);
+    }
+
+    static void runSelectFood(boolean bool) {
+        String userSelection;
+        boolean selectingFood = bool;
+        while (selectingFood) {
+
+            System.out.println("Welcome");
+            System.out.println("Please select what menu You would like to purchase from ");
+            System.out.println("1. Economy Class Menu");
+            System.out.println("2. First Class Menu");
+            System.out.println("3. Back");
+            System.out.println("4. Exit");
+            userInput = scanner.nextLine();
+            switch (userInput) {
+
+                case "1":
+
+                    try {
+                        System.out.println("Please select a food of Your choice to be served during Your flight.");
+                        chosenMenu = foodInit.economyClassMenu;
+                        Collections.sort(chosenMenu.getList());
+                        for (int i = 0; i < chosenMenu.getListSize(); i++) {
+                            System.out.println((i + 1) + ": " + chosenMenu.getFoodAtIndex(i));
+                        }
+                        userInput = scanner.nextLine();
+                        userSelection = userInput;
+                        if (Integer.parseInt(userSelection) <= 0 || Integer.parseInt(userSelection) > chosenMenu.getListSize()) {
+                            System.out.println("Bad input. This number is not on the list.");
+                            break;
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Bad input. Use only numbers.");
+                        break;
+                    }
+
+                    customer.addToMyFoodList(chosenMenu.getFoodAtIndex(Integer.parseInt(userSelection) - 1));
+                    System.out.println(customer.getMyFoodList().get(counter));
+                    counter++;
+                    selectingFood = false;
+                    runShowTicket(true);
+                    break;
+                case "2":
+                    try {
+                        System.out.println("Please select a food of Your choice to be served during Your flight.");
+                        chosenMenu = foodInit.firstClassMenu;
+                        Collections.sort(chosenMenu.getList());
+                        for (int i = 0; i < chosenMenu.getListSize(); i++) {
+                            System.out.println((i + 1) + ": " + chosenMenu.getFoodAtIndex(i));
+                        }
+                        userInput = scanner.nextLine();
+                        userSelection = userInput;
+                        if (Integer.parseInt(userSelection) <= 0 || Integer.parseInt(userSelection) > chosenMenu.getListSize()) {
+                            System.out.println("Bad input. This number is not on the list.");
+                            break;
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Bad input. Use only numbers.");
+                        break;
+                    }
+                    customer.addToMyFoodList(chosenMenu.getFoodAtIndex(Integer.parseInt(userSelection) - 1));
+                    System.out.println(customer.getMyFoodList().get(counter));
+                    counter++;
+                    selectingFood = false;
+                    runShowTicket(true);
+                    break;
+                case "3":
+                    selectingFood = false;
+                    runSelectClass(true);
+                    break;
+                case "4":
+                    selectingFood = false;
+                    break;
+                default:
+                    System.out.println("Please select an actual choice.");
+                    break;
+            }
+        }
+    }
+
+    static void runShowTicket(boolean bool) {
+        
 
     }
 
-    static void runAssignSeat() {
-
-    }
-
-    static void runSelectFood() {
-
-    }
-
-    static void runShowTicket() {
-
-    }
-
-    static void runConfirmation() {
+    static void runConfirmation(boolean bool) {
 
     }
 }
