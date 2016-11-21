@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class mainUI {
 
-    static CustomerList customerList = new CustomerList();
+    //static CustomerList customerList = new CustomerList();
     static Customer customer = new Customer();
     static FoodInit foodInit = new FoodInit();
     static AirplaneRunner runPlane = new AirplaneRunner();
