@@ -53,8 +53,9 @@ public class PlaneFrame1 extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         EconomyClassButton = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        nextFrameButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,14 +121,21 @@ public class PlaneFrame1 extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Next");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        nextFrameButton.setText("Next");
+        nextFrameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                nextFrameButtonActionPerformed(evt);
             }
         });
 
         jButton2.setText("Previous");
+
+        cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,9 +161,11 @@ public class PlaneFrame1 extends javax.swing.JFrame {
                 .addContainerGap(103, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cancelButton)
+                .addGap(51, 51, 51)
                 .addComponent(jButton2)
                 .addGap(36, 36, 36)
-                .addComponent(jButton1)
+                .addComponent(nextFrameButton)
                 .addGap(337, 337, 337))
         );
         layout.setVerticalGroup(
@@ -179,7 +189,8 @@ public class PlaneFrame1 extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(nextFrameButton)
+                    .addComponent(cancelButton))
                 .addGap(46, 46, 46))
         );
 
@@ -198,7 +209,7 @@ public class PlaneFrame1 extends javax.swing.JFrame {
         customerPlane = saab001; 
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void nextFrameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextFrameButtonActionPerformed
         Seat seat;
         
         
@@ -235,10 +246,13 @@ public class PlaneFrame1 extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "You have to choose Class");
                 }
         System.out.println(newCustomer);
+        this.setVisible(false);
+        new FoodGUI().setVisible(true);
         
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_nextFrameButtonActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         customerPlane = saab002; 
@@ -247,6 +261,11 @@ public class PlaneFrame1 extends javax.swing.JFrame {
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
         customerPlane = saab003;
     }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        this.setVisible(false);
+        new BookingFrameHua().setVisible(true);
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,7 +307,7 @@ public class PlaneFrame1 extends javax.swing.JFrame {
     private javax.swing.JRadioButton FirstClassButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -296,5 +315,6 @@ public class PlaneFrame1 extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JButton nextFrameButton;
     // End of variables declaration//GEN-END:variables
 }
