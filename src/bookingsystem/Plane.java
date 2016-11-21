@@ -13,16 +13,15 @@ public class Plane {
 
     String destination;
     String planeID;
-    SeatList  seatList;
-    private CustomerList customerList;
-     boolean flightStatus;
-     int noFirstClassSeat;
-     int noEconomyClassSeat;
+    TicketList ticketList;
+    boolean flightStatus;
+    int noFirstClassSeat;
+    int noEconomyClassSeat;
 
-     public Plane(){
-         
-     }
-    
+    public Plane() {
+
+    }
+
     public boolean isFlight() {
         return flightStatus;
     }
@@ -39,8 +38,8 @@ public class Plane {
         return planeID;
     }
 
-    public SeatList getSeatList(){
-        return seatList;
+    public TicketList getTicketList() {
+        return ticketList;
     }
 
     public int getAvailableNoFirstClassSeat() {

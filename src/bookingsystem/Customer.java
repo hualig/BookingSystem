@@ -21,7 +21,6 @@ public class Customer {
     private double ticketPrice;
     private double foodPrice;
     private List<Food> myFoodList = new ArrayList<>();
-    private int seatNumber = 0;
 
     public Customer(){
         
@@ -47,10 +46,6 @@ public class Customer {
         return totalPrice;
     }
     
-    public double getTicketPrice(){
-        
-        return ticketPrice;
-    }
 
     public double getFoodPrice() {
         return foodPrice;
@@ -58,10 +53,6 @@ public class Customer {
 
     public List<Food> getMyFoodList() {
         return myFoodList;
-    }
-
-    public int getSeatNumber() {
-        return seatNumber;
     }
     
     public void addToMyFoodList(Food food) {
@@ -83,18 +74,7 @@ public class Customer {
         foodPrice = 0.0;
     }
     
-    public void assignSeatNumber(Seat seat) {
-        
-        seatNumber = seat.getNumber();
-        ticketPrice = seat.getPrice();
-        
-    }
-
-    public void setSeatNumber(Integer seatNumber) {
-        this.seatNumber = seatNumber;
-    }
-
-    public void setName(String name) {
+     public void setName(String name) {
         this.name = name;
     }
 
@@ -106,8 +86,8 @@ public class Customer {
     
     @Override
     public String toString() {
-        return "Customer{" + "name=" + name + ", iD=" + iD + ", totalPrice=" + getTotalPrice() + ", ticketPrice=" + getTicketPrice() + ", foodPrice=" + 
-                getFoodPrice() + ", myFoodList=" + getMyFoodList() + ", seatNumber=" + getSeatNumber() + '}' + "\n";
+        return "Customer{" + "name=" + name + ", iD=" + iD + ", foodPrice=" + 
+                getFoodPrice() + ", myFoodList=" + getMyFoodList() + '}' + "\n";
     }
     
     
