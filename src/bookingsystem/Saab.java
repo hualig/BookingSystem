@@ -11,7 +11,7 @@ import java.util.HashMap;
  *
  * @author User
  */
-public class Saab extends Plane {
+public class Saab extends Flight {
 
 
 
@@ -20,7 +20,7 @@ public class Saab extends Plane {
         planeID = "1234";
         noFirstClassSeat = 5;
         noEconomyClassSeat = 5;
-        seatList = new SeatList(noFirstClassSeat, noEconomyClassSeat);
+        ticketList = new TicketList(noFirstClassSeat, noEconomyClassSeat);
                 
     }
 }

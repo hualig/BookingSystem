@@ -20,10 +20,10 @@ public class PlaneFrame1 extends javax.swing.JFrame {
      */
     private SeatType typeChosed;
     private String planeID;
-    private Plane customerPlane = new Plane();
-    private Plane saab001;
-    private Plane saab002;
-    private Plane saab003;
+    private Flight customerPlane = new Flight();
+    private Flight saab001;
+    private Flight saab002;
+    private Flight saab003;
     private Customer newCustomer = new Customer("test", "9273982934");
     
     public PlaneFrame1() {
@@ -210,19 +210,25 @@ public class PlaneFrame1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void nextFrameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextFrameButtonActionPerformed
-        Seat seat;
+        //Seat seat;
+        Ticket newTicket = new Ticket();
+        
         
         
         if(customerPlane.getPlaneID()==null){
             JOptionPane.showMessageDialog(this, "You have to choose plane");
         }
-        
+         
         if(typeChosed == SeatType.EconomyClass) {
-            try {
+           try {
+                newTicket.setSeatType(typeChosed);
+                newTicket.setSeatNumber(planeID);
+                customerPlane.getTicketList().searchAvailableTicket(typeChosed);
                 
-                seat = customerPlane.getSeatList().getAvailableSeatEC();
-                newCustomer.assignSeatNumber(seat);
-                seat.changeStatus();
+
+                //seat = customerPlane.getSeatList().getAvailableSeatEC();
+                //newCustomer.assignSeatNumber(seat);
+                //seat.changeStatus();
             } catch (SeatNotFoundException ex) {
                 JOptionPane.showMessageDialog(this,"There is no available seat in Economy Class. Would you like to book First Class?");
             }
@@ -232,9 +238,13 @@ public class PlaneFrame1 extends javax.swing.JFrame {
         
         else if (typeChosed == SeatType.FirstClass){
             try {
-                seat = customerPlane.getSeatList().getAvailableSeatFC();
-                newCustomer.assignSeatNumber(seat);
-                seat.changeStatus();
+                newTicket.setSeatType(typeChosed);
+                newTicket.setSeatNumber(planeID);
+                customerPlane.getTicketList().searchAvailableTicket(typeChosed);
+                
+                //seat = customerPlane.getSeatList().getAvailableSeatFC();
+                //newCustomer.assignSeatNumber(seat);
+                //seat.changeStatus();
             } catch (SeatNotFoundException ex) {
                 JOptionPane.showMessageDialog(this,"There is no available seat in First Class. Would you like to book Economy Class?");
             }
@@ -264,7 +274,7 @@ public class PlaneFrame1 extends javax.swing.JFrame {
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         this.setVisible(false);
-        new BookingFrameHua().setVisible(true);
+        new BookingFrame().setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
