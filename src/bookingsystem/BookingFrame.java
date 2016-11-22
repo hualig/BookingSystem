@@ -34,11 +34,10 @@ public class BookingFrame extends javax.swing.JFrame {
     //Change the value of chosenMenu to whatever comes from the previous booking step
     FoodMenu chosenMenu = runFoodInit.economyClassMenu;
 
-    //Just change the value of currentCustomer to whatever customer comes from the previous booking step
+
     private Ticket ticket;
 
     private Customer newCustomer = new Customer();
-    Customer currentCustomer = newCustomer;
     private SeatType typeChosed;
 
     private Flight customerPlane = new Flight();
@@ -278,9 +277,7 @@ public class BookingFrame extends javax.swing.JFrame {
                         .addComponent(jButton4))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(2, 2, 2))
+                            .addComponent(jLabel7)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -534,7 +531,7 @@ public class BookingFrame extends javax.swing.JFrame {
 
         orderListTotalPriceLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         orderListTotalPriceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        orderListTotalPriceLabel.setText(Double.toString(currentCustomer.getFoodPrice()));
+        orderListTotalPriceLabel.setText(Double.toString(newCustomer.getFoodPrice()));
         jPanel10.add(orderListTotalPriceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 24, 150, 18));
 
         foodPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 385, 170, 55));
@@ -871,6 +868,10 @@ public class BookingFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        
+        currentCustomerFoodList.removeAllElements();
+        orderListTotalPriceLabel.setText("");
         ticket.setCustomer(newCustomer);
         startPanel.setVisible(true);
         bookPanel.setVisible(false);
@@ -907,20 +908,20 @@ public class BookingFrame extends javax.swing.JFrame {
     private void removeItemFromListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeItemFromListButtonActionPerformed
 
         String selectedMenuItem = jList1.getSelectedValue();
-        currentCustomer.removeFromMyFoodList(chosenMenu.findFoodByName(selectedMenuItem));
+        newCustomer.removeFromMyFoodList(chosenMenu.findFoodByName(selectedMenuItem));
         currentCustomerFoodList.removeAllElements();
-        for (int i = 0; i < currentCustomer.getMyFoodList().size(); i++) {
-            currentCustomerFoodList.addElement(currentCustomer.getMyFoodList().get(i).getName());
+        for (int i = 0; i < newCustomer.getMyFoodList().size(); i++) {
+            currentCustomerFoodList.addElement(newCustomer.getMyFoodList().get(i).getName());
         }
         orderListItemPriceLabel.setText("");
-        orderListTotalPriceLabel.setText(Double.toString(currentCustomer.getFoodPrice()));
+        orderListTotalPriceLabel.setText(Double.toString(newCustomer.getFoodPrice()));
     }//GEN-LAST:event_removeItemFromListButtonActionPerformed
 
     private void clearListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearListButtonActionPerformed
 
-        currentCustomer.clearMyFoodList();
+        newCustomer.clearMyFoodList();
         currentCustomerFoodList.removeAllElements();
-        orderListTotalPriceLabel.setText(Double.toString(currentCustomer.getFoodPrice()));
+        orderListTotalPriceLabel.setText(Double.toString(newCustomer.getFoodPrice()));
 
     }//GEN-LAST:event_clearListButtonActionPerformed
 
@@ -929,7 +930,7 @@ public class BookingFrame extends javax.swing.JFrame {
         String selectedMenuItem = (String) currentMenuCombox.getSelectedItem();
         customersSelection = chosenMenu.findFoodByName(selectedMenuItem);
         jTextArea3.setText(chosenMenu.findFoodByName(currentMenuCombox.getSelectedItem().toString()).getDescription());
-        subStartPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(currentMenuCombox.getSelectedItem().toString()));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(currentMenuCombox.getSelectedItem().toString()));
         menuItemPriceLabel.setText(chosenMenu.findFoodByName(currentMenuCombox.getSelectedItem().toString()).getPrice().toString());
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -962,12 +963,14 @@ public class BookingFrame extends javax.swing.JFrame {
         currentCustomerFoodList.removeAllElements();
         int buyAmount = Integer.parseInt(amountToBuy.getText());
         for (int i = 0; i < buyAmount; i++) {
-            currentCustomer.addToMyFoodList(customersSelection);
+            newCustomer.addToMyFoodList(customersSelection);
+            
         }
-        for (int i = 0; i < currentCustomer.getMyFoodList().size(); i++) {
-            currentCustomerFoodList.addElement(currentCustomer.getMyFoodList().get(i).getName());
+        for (int i = 0; i < newCustomer.getMyFoodList().size(); i++) {
+            currentCustomerFoodList.addElement(newCustomer.getMyFoodList().get(i).getName());
+            System.out.println(newCustomer.getMyFoodList().get(i).toString());
         }
-        orderListTotalPriceLabel.setText(Double.toString(currentCustomer.getFoodPrice()));
+        orderListTotalPriceLabel.setText(Double.toString(newCustomer.getFoodPrice()));
     }//GEN-LAST:event_addToCartButtonActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
