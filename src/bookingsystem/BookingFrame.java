@@ -793,7 +793,7 @@ public class BookingFrame extends javax.swing.JFrame {
 
             newCustomer.setName(name);
             newCustomer.setiD(iD);
-            jTextArea1.append(newCustomer.toString());
+            
 
             for (Flight next : planeList) {
 
@@ -854,13 +854,9 @@ public class BookingFrame extends javax.swing.JFrame {
                 switch (typeChosed) {
                     case EconomyClass:
                         chosenMenu = runFoodInit.economyClassMenu;
-
-                        System.out.println(chosenMenu.getList());
                         break;
                     case FirstClass:
                         chosenMenu = runFoodInit.firstClassMenu;
-
-                        System.out.println(chosenMenu.getList());
                         break;
 
                 }
@@ -903,6 +899,9 @@ public class BookingFrame extends javax.swing.JFrame {
         foodContainPanel.setVisible(false);
         reviewPanel.setVisible(false);
 
+        
+        jTextArea1.append(customerPlane.getPlaneID() + " is ");
+        
         System.out.print("Currently total income is: ");
         income = 0d;
         for (Flight next : planeList) {
@@ -1032,9 +1031,7 @@ public class BookingFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void initCustomComponents() {
-        System.out.println("//////////////");
         //currentMenuCombox.removeAllElements();
-        System.out.println("lakjsdlkjlsakjdflkasj");
         //Collections.sort(chosenMenu.getList());
         for (int i = 0; i < chosenMenu.getListSize(); i++) {
 
