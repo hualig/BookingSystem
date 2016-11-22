@@ -1,70 +1,70 @@
 package bookingsystem;
+
 /**
  *
  * @author Mikael Tolfström
  */
 public class FoodInit {
 
-    FoodMenu economyClassMenu;
-    FoodMenu firstClassMenu;
+    public FoodMenu economyClassMenu;
+    public FoodMenu firstClassMenu;
 
-    static Food lasagne = new Food("Lasagna", 98.75);
-    static Food pasta = new Food("Pasta Carbonara", 89.90);
-    static Food meatballs = new Food("Spaghetti with meatballs", 102.99);
-    static Food bbqHamburger = new Food("BBQ hamburger", 115.90);
-    static Food regHamburger = new Food("Hamburger", 79.99);
-    static Food english = new Food("English breakfast", 78.90);
-    static Food kebab = new Food("Kebab", 49.09);
+    public Food cola = new Food("Kuba Cola", 23.50);
+    public Food lemon = new Food("Freeway lemon", 34.50);
+    public Food ham = new Food("Ham sandwich", 65.90);
+    public Food cheese = new Food("Cheese sandwich", 63.90);
+    public Food hamburger = new Food("Hamburger", 79.90);
+    public Food beer = new Food("Beer", 79.90);
+    public Food wine = new Food("Wine", 99.90);
 
-    static Food firstClassLasagne = new Food("Lasagna", 198.75);
-    static Food firstClassPasta = new Food("Pasta Carbonara", 189.90);
-    static Food firstClassMeatballs = new Food("Spaghetti with meatballs", 202.99);
-    static Food firstClassBbqHamburger = new Food("BBQ hamburger", 215.90);
-    static Food firstClassRegHamburger = new Food("Hamburger", 179.99);
-    static Food firstClassEnglish = new Food("English breakfast", 178.90);
-    static Food firstClassKebab = new Food("Kebab", 149.09);
+    public Food cocaCola = new Food("Coca cola", 49.90);
+    public Food sprite = new Food("Sprite", 49.90);
+    public Food filetMignon = new Food("Filet mignon", 499.90);
+    public Food beef = new Food("Kobe beef", 559.90);
+    public Food lobster = new Food("Lobster platter", 599.90);
+    public Food tactical = new Food("Tactical Nuclear Penguin", 479.90);
+    public Food domp = new Food("Dom Perignon", 249.90);
 
     public FoodInit() {
         economyClassMenu = new FoodMenu();
         firstClassMenu = new FoodMenu();
-
+        
+        economyClassMenu.addFoodItem(cola);
+        economyClassMenu.addFoodItem(lemon);
+        economyClassMenu.addFoodItem(ham);
+        economyClassMenu.addFoodItem(cheese);
+        economyClassMenu.addFoodItem(hamburger);
+        economyClassMenu.addFoodItem(beer);
+        economyClassMenu.addFoodItem(wine);
     }
 
     public void runInit() {
-        
-        lasagne.setDescription      ("Great lasagne!\nMade in Italy!");
-        pasta.setDescription        ("Superb carbonara\nfrom top chefs!");
-        meatballs.setDescription    ("Savoury meatballs\nfrom sweden.");
-        bbqHamburger.setDescription ("Angus beef with\nsweet barbeque\nsauce.");
-        regHamburger.setDescription ("Hamburger with\ncheese, lettuce,\ntomatoes and\nketchup.");
-        english.setDescription      ("A proper english\nbreakfast with\nbacon, fried\ntomatoes, toast and\nscrambled\nFairTrade eggs.");
-        kebab.setDescription        ("Just like your\nlocal cornershops\nat 3 A.M, on a\nsaturday morning!");
-        
-        firstClassLasagne.setDescription        ("Great lasagne!\nMade in Italy!");
-        firstClassPasta.setDescription          ("Superb carbonara\nfrom top chefs!");
-        firstClassMeatballs.setDescription      ("Savoury meatballs\nfrom sweden.");
-        firstClassBbqHamburger.setDescription   ("Angus beef with\nsweet barbeque\nsauce.");
-        firstClassRegHamburger.setDescription   ("Hamburger with\ncheese, lettuce,\ntomatoes and\nketchup.");
-        firstClassEnglish.setDescription        ("A proper english\nbreakfast with\nbacon, fried\ntomatoes, toast and\nscrambled\nFairTrade eggs.");
-        firstClassKebab.setDescription          ("Just like your\nlocal cornershops\nat 3 A.M, on a\nsaturday morning!");
-        
-        
-        
-        economyClassMenu.addFoodItem(lasagne);
-        economyClassMenu.addFoodItem(pasta);
-        economyClassMenu.addFoodItem(meatballs);
-        economyClassMenu.addFoodItem(bbqHamburger);
-        economyClassMenu.addFoodItem(regHamburger);
-        economyClassMenu.addFoodItem(english);
-        economyClassMenu.addFoodItem(kebab);
 
-        firstClassMenu.addFoodItem(firstClassLasagne);
-        firstClassMenu.addFoodItem(firstClassPasta);
-        firstClassMenu.addFoodItem(firstClassMeatballs);
-        firstClassMenu.addFoodItem(firstClassBbqHamburger);
-        firstClassMenu.addFoodItem(firstClassRegHamburger);
-        firstClassMenu.addFoodItem(firstClassEnglish);
-        firstClassMenu.addFoodItem(firstClassKebab);
+        cola.setDescription("33cl can");
+        lemon.setDescription("33cl can");
+        ham.setDescription("Ham, cheese and lettuce");
+        cheese.setDescription("Cheese and\nlettuce");
+        hamburger.setDescription("Hamburger with\ncheese, lettuce,\ntomatoes and\nketchup.");
+        beer.setDescription("50cl bottle\n4,5%");
+        wine.setDescription("Red or white wine\nin a glass");
+
+        cocaCola.setDescription("33cl glass bottle");
+        sprite.setDescription("50cl PET bottle");
+        filetMignon.setDescription("Prepared by\nour top chefs!");
+        beef.setDescription("Kobe beef with\nsavoury cognac\nsauce.");
+        lobster.setDescription("Fresh lobster\ncaught one hour\nbefore take-off.");
+        tactical.setDescription("A small glass\nof Brewdog beer\n6cl of 39% heaven. ");
+        domp.setDescription("Glass, 11cl");
+
+        
+
+        firstClassMenu.addFoodItem(cocaCola);
+        firstClassMenu.addFoodItem(sprite);
+        firstClassMenu.addFoodItem(filetMignon);
+        firstClassMenu.addFoodItem(beef);
+        firstClassMenu.addFoodItem(lobster);
+        firstClassMenu.addFoodItem(tactical);
+        firstClassMenu.addFoodItem(domp);
     }
 
 }
