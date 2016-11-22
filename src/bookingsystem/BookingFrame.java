@@ -6,12 +6,10 @@
 package bookingsystem;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
@@ -35,7 +33,6 @@ public class BookingFrame extends javax.swing.JFrame {
     //Change the value of chosenMenu to whatever comes from the previous booking step
     FoodMenu chosenMenu = runFoodInit.economyClassMenu;
 
-
     private Ticket ticket;
 
     private Customer newCustomer = new Customer();
@@ -50,7 +47,6 @@ public class BookingFrame extends javax.swing.JFrame {
     private Flight saab003;
     private double income;
     private double profit;
-    
 
     public BookingFrame() {
         runFoodInit.runInit();
@@ -800,7 +796,7 @@ public class BookingFrame extends javax.swing.JFrame {
             jTextArea1.append(newCustomer.toString());
 
             for (Flight next : planeList) {
-                
+
                 subPlanePanel.add(new JRadioButton(next.planeID));
             }
             subPlanePanel.revalidate();
@@ -854,7 +850,26 @@ public class BookingFrame extends javax.swing.JFrame {
         } else {
             try {
                 ticket = customerPlane.getTicketList().searchAvailableTicket(typeChosed);
-                
+                int count = chosenMenu.getListSize();
+                switch (typeChosed) {
+                    case EconomyClass:
+                        chosenMenu = runFoodInit.economyClassMenu;
+
+                        System.out.println(chosenMenu.getList());
+                        break;
+                    case FirstClass:
+                        chosenMenu = runFoodInit.firstClassMenu;
+
+                        System.out.println(chosenMenu.getList());
+                        break;
+
+                }
+                for (Food next : chosenMenu.getList()) {
+                    currentMenuCombox.insertElementAt(next.getName(), chosenMenu.getList().indexOf(next));
+                }
+                for (int i = (chosenMenu.getListSize() + count); i > chosenMenu.getListSize(); i--) {
+                    currentMenuCombox.removeElementAt(i - 1);
+                }
                 registerPanel.setVisible(false);
                 planePanel.setVisible(false);
                 foodContainPanel.setVisible(true);
@@ -876,8 +891,7 @@ public class BookingFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-        
+
         currentCustomerFoodList.removeAllElements();
         orderListTotalPriceLabel.setText("");
         ticket.setCustomer(newCustomer);
@@ -888,10 +902,10 @@ public class BookingFrame extends javax.swing.JFrame {
         planePanel.setVisible(false);
         foodContainPanel.setVisible(false);
         reviewPanel.setVisible(false);
-        
+
         System.out.print("Currently total income is: ");
         income = 0d;
-        for(Flight next:planeList){
+        for (Flight next : planeList) {
             income += next.getIncome();
         }
         System.out.println(income + " SEK");
@@ -912,7 +926,6 @@ public class BookingFrame extends javax.swing.JFrame {
         startPanel.setVisible(false);
 
         bookPanel.setVisible(true);
-        
 
 
     }//GEN-LAST:event_startButtonActionPerformed
@@ -981,7 +994,7 @@ public class BookingFrame extends javax.swing.JFrame {
         int buyAmount = Integer.parseInt(amountToBuy.getText());
         for (int i = 0; i < buyAmount; i++) {
             newCustomer.addToMyFoodList(customersSelection);
-            
+
         }
         for (int i = 0; i < newCustomer.getMyFoodList().size(); i++) {
             currentCustomerFoodList.addElement(newCustomer.getMyFoodList().get(i).getName());
@@ -1001,13 +1014,12 @@ public class BookingFrame extends javax.swing.JFrame {
         jTextArea2.append("Person Number: " + newCustomer.getiD() + "\n");
         jTextArea2.append("Fight: " + customerPlane.getPlaneID() + "\n");
         jTextArea2.append("Seat number: " + ticket.getSeatType() + " " + ticket.getSeatNumber() + "\n");
-        jTextArea2.append("price: " + ticket.getPrice() + " SEK \n");
-        jTextArea2.append("reserved food : \n");
-        newCustomer.getMyFoodList().forEach(s -> jTextArea2.append("TEST\n"));
-        jTextArea2.append(newCustomer.getMyFoodList() + "\n");
+        jTextArea2.append("Price: " + ticket.getPrice() + " SEK \n");
+        jTextArea2.append("Reserved food : \n");
+        newCustomer.getMyFoodList().forEach(s -> jTextArea2.append(s + "\n"));
         jTextArea2.append("Total food price: " + newCustomer.getFoodPrice() + " SEK \n");
         jTextArea2.append("-------------\n");
-        jTextArea2.append("Total: " + ticket.getTotalPrice() + " SEK \n");
+        jTextArea2.append("Total: " + (ticket.getTotalPrice()+newCustomer.getFoodPrice()) + " SEK \n");
 
 
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -1020,9 +1032,14 @@ public class BookingFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void initCustomComponents() {
-        Collections.sort(chosenMenu.getList());
+        System.out.println("//////////////");
+        //currentMenuCombox.removeAllElements();
+        System.out.println("lakjsdlkjlsakjdflkasj");
+        //Collections.sort(chosenMenu.getList());
         for (int i = 0; i < chosenMenu.getListSize(); i++) {
+
             currentMenuCombox.addElement(chosenMenu.getFoodAtIndex(i).getName());
+
         }
     }
 
