@@ -175,23 +175,23 @@ public class BookingFrame extends javax.swing.JFrame {
         subStartPanelLayout.setHorizontalGroup(
             subStartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(subStartPanelLayout.createSequentialGroup()
-                .addContainerGap(308, Short.MAX_VALUE)
+                .addContainerGap(323, Short.MAX_VALUE)
                 .addGroup(subStartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, subStartPanelLayout.createSequentialGroup()
-                        .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(406, 406, 406))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, subStartPanelLayout.createSequentialGroup()
                         .addComponent(welcomeLabel)
-                        .addGap(320, 320, 320))))
+                        .addGap(305, 305, 305))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, subStartPanelLayout.createSequentialGroup()
+                        .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(391, 391, 391))))
         );
         subStartPanelLayout.setVerticalGroup(
             subStartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, subStartPanelLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(70, Short.MAX_VALUE)
                 .addComponent(welcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(197, 197, 197))
+                .addGap(190, 190, 190))
         );
 
         startPanel.add(subStartPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 950, 450));
@@ -233,8 +233,10 @@ public class BookingFrame extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Register"));
 
+        nameLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         nameLabel.setText("Name:");
 
+        iDLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         iDLabel.setText("Person Number:");
 
         nameTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -243,6 +245,7 @@ public class BookingFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setText("Previous");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,6 +253,7 @@ public class BookingFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setText("Next");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,6 +261,7 @@ public class BookingFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Please register first:");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -264,34 +269,35 @@ public class BookingFrame extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addContainerGap())
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(142, 142, 142)
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 390, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(iDLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(2, 2, 2))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(nameLabel)
+                                    .addComponent(iDLabel))))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(iDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 183, Short.MAX_VALUE))
+                            .addComponent(nameTextField)
+                            .addComponent(iDTextField))))
+                .addContainerGap())
         );
-
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {iDTextField, nameTextField});
-
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+                .addGap(91, 91, 91)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
                     .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -299,7 +305,7 @@ public class BookingFrame extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(iDLabel)
                     .addComponent(iDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
@@ -331,6 +337,7 @@ public class BookingFrame extends javax.swing.JFrame {
         subPlanePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Flight and Class"));
 
         buttonGroup2.add(FirstClassButton);
+        FirstClassButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         FirstClassButton.setText("First Class");
         FirstClassButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,10 +345,11 @@ public class BookingFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Choose flight:");
 
         buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jRadioButton1.setText("SAS1234");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -350,6 +358,7 @@ public class BookingFrame extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jRadioButton2.setText("SAS3891");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -358,6 +367,7 @@ public class BookingFrame extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jRadioButton3.setText("SAS4362");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -365,10 +375,11 @@ public class BookingFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Choose class:");
 
         buttonGroup2.add(EconomyClassButton);
+        EconomyClassButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         EconomyClassButton.setText("Economy Class");
         EconomyClassButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -376,6 +387,7 @@ public class BookingFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton9.setText("Next");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -383,6 +395,7 @@ public class BookingFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton10.setText("Previous");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -402,21 +415,24 @@ public class BookingFrame extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(subPlanePanelLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
+                .addComponent(jRadioButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(subPlanePanelLayout.createSequentialGroup()
                 .addGroup(subPlanePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(subPlanePanelLayout.createSequentialGroup()
-                        .addComponent(jRadioButton3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(subPlanePanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
                         .addGroup(subPlanePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioButton1)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
-                        .addGroup(subPlanePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FirstClassButton)
-                            .addComponent(EconomyClassButton)
-                            .addComponent(jLabel5))
-                        .addGap(119, 119, 119))))
+                            .addComponent(jRadioButton2)))
+                    .addGroup(subPlanePanelLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addGroup(subPlanePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(FirstClassButton)
+                    .addComponent(EconomyClassButton)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(119, 119, 119))
         );
         subPlanePanelLayout.setVerticalGroup(
             subPlanePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -435,7 +451,7 @@ public class BookingFrame extends javax.swing.JFrame {
                     .addComponent(jRadioButton2))
                 .addGap(48, 48, 48)
                 .addComponent(jRadioButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addGroup(subPlanePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton10)
                     .addComponent(jButton9))
@@ -659,9 +675,10 @@ public class BookingFrame extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Review"));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Please review your journey:");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Previous");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -669,6 +686,7 @@ public class BookingFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Confirm and Pay");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -699,14 +717,14 @@ public class BookingFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addContainerGap(419, Short.MAX_VALUE))))
+                        .addContainerGap(383, Short.MAX_VALUE))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -796,7 +814,9 @@ public class BookingFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        registerPanel.setVisible(true);
+        registerPanel.setVisible(false);
+        planePanel.setVisible(false);
+        foodContainPanel.setVisible(true);
         reviewPanel.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -829,14 +849,14 @@ public class BookingFrame extends javax.swing.JFrame {
         } else {
             try {
                 ticket = customerPlane.getTicketList().searchAvailableTicket(typeChosed);
-                ticket.setCustomer(newCustomer);
+                
+                registerPanel.setVisible(false);
+                planePanel.setVisible(false);
+                foodContainPanel.setVisible(true);
+                reviewPanel.setVisible(false);
             } catch (SeatNotFoundException ex) {
                 JOptionPane.showMessageDialog(this, "There is no available seat in chosen class. Would you like to choose another class?");
             }
-            registerPanel.setVisible(false);
-            planePanel.setVisible(false);
-            foodContainPanel.setVisible(true);
-            reviewPanel.setVisible(false);
 
         }
 
@@ -851,11 +871,10 @@ public class BookingFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        ticket.setCustomer(newCustomer);
         startPanel.setVisible(true);
         bookPanel.setVisible(false);
 
-        
         registerPanel.setVisible(true);
         planePanel.setVisible(false);
         foodContainPanel.setVisible(false);
@@ -865,7 +884,16 @@ public class BookingFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
+        newCustomer = new Customer();
+        nameTextField.setText("");
+        iDTextField.setText("");
+        buttonGroup1.clearSelection();
+        buttonGroup2.clearSelection();
+        customerPlane = new Flight();
+        typeChosed = null;
+
         startPanel.setVisible(false);
+
         bookPanel.setVisible(true);
 
 
@@ -947,19 +975,21 @@ public class BookingFrame extends javax.swing.JFrame {
         planePanel.setVisible(false);
         foodContainPanel.setVisible(false);
         reviewPanel.setVisible(true);
-        
-        jTextArea2.append("Name: " + newCustomer.getName() +"\n");
-        jTextArea2.append("Person Number: " + newCustomer.getiD()+"\n");
-        jTextArea2.append("Fight: " + customerPlane.getPlaneID() +"\n");
-        jTextArea2.append("Sea number: " + ticket.getSeatNumber() +"\n");
-        jTextArea2.append("price: " + ticket.getPrice() +"\n");
-        jTextArea2.append("My food: \n");
-        
-        
-        
-        
-        
-        
+
+        jTextArea2.setText("");
+        jTextArea2.append("Name: " + newCustomer.getName() + "\n");
+        jTextArea2.append("Person Number: " + newCustomer.getiD() + "\n");
+        jTextArea2.append("Fight: " + customerPlane.getPlaneID() + "\n");
+        jTextArea2.append("Seat number: " + ticket.getSeatType() + " " + ticket.getSeatNumber() + "\n");
+        jTextArea2.append("price: " + ticket.getPrice() + " SEK \n");
+        jTextArea2.append("reserved food : \n");
+        newCustomer.getMyFoodList().forEach(s -> jTextArea2.append("TEST\n"));
+        jTextArea2.append(newCustomer.getMyFoodList() + "\n");
+        jTextArea2.append("Total food price: " + newCustomer.getFoodPrice() + " SEK \n");
+        jTextArea2.append("-------------\n");
+        jTextArea2.append("Total: " + ticket.getTotalPrice() + " SEK \n");
+
+
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
