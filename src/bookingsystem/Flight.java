@@ -59,4 +59,13 @@ public class Flight {
 
     }
     
+    public double getIncome() {
+        
+        List<Double> incomeList = new ArrayList<>();
+        for(Ticket next:ticketList.getList()) {
+            if(next.getCustomer()!=null) incomeList.add(next.getTotalPrice());
+        }
+        return incomeList.stream().reduce(0d, (a, b)->a+b);
+    }
+    
 }

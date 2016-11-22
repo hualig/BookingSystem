@@ -13,6 +13,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 
 /**
  *
@@ -44,9 +45,13 @@ public class BookingFrame extends javax.swing.JFrame {
     private Flight customerPlane = new Flight();
 
     private List<Flight> planeList = new ArrayList<>();
+    private List<JRadioButton> flightsRadioButton = new ArrayList<>();
     private Flight saab001;
     private Flight saab002;
     private Flight saab003;
+    private double income;
+    private double profit;
+    
 
     public BookingFrame() {
         runFoodInit.runInit();
@@ -798,8 +803,11 @@ public class BookingFrame extends javax.swing.JFrame {
             jTextArea1.append(newCustomer.toString());
 
             for (Flight next : planeList) {
-                planePanel.add(new JLabel(next.planeID));
+                
+                subPlanePanel.add(new JRadioButton(next.planeID));
             }
+            subPlanePanel.revalidate();
+            subPlanePanel.repaint();
             registerPanel.setVisible(false);
             planePanel.setVisible(true);
             foodContainPanel.setVisible(false);
@@ -879,6 +887,14 @@ public class BookingFrame extends javax.swing.JFrame {
         planePanel.setVisible(false);
         foodContainPanel.setVisible(false);
         reviewPanel.setVisible(false);
+        
+        System.out.print("Currently total income is: ");
+        income = 0d;
+        for(Flight next:planeList){
+            income += next.getIncome();
+        }
+        System.out.println(income + " SEK");
+        System.out.println("Currently total profit is: " + income * 0.3 + " SEK");
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -895,6 +911,7 @@ public class BookingFrame extends javax.swing.JFrame {
         startPanel.setVisible(false);
 
         bookPanel.setVisible(true);
+        
 
 
     }//GEN-LAST:event_startButtonActionPerformed

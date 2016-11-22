@@ -7,6 +7,7 @@ package bookingsystem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -15,6 +16,7 @@ import java.util.List;
 public class TicketList {
     
     private List<Ticket> ticketList;
+    
     
     public TicketList(){
         
@@ -53,5 +55,7 @@ public class TicketList {
         
         throw new SeatNotFoundException();
     }
+    
+    
     
 }
