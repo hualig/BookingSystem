@@ -9,21 +9,21 @@ public class FoodInit {
     public FoodMenu economyClassMenu;
     public FoodMenu firstClassMenu;
 
-    public Food cola = new Food("Kuba Cola, 33cl", 23.50);
-    public Food lemon = new Food("Freeway lemon, 50cl", 34.50);
+    public Food cola = new Food("Kuba Cola", 23.50);
+    public Food lemon = new Food("Freeway lemon", 34.50);
     public Food ham = new Food("Ham sandwich", 65.90);
     public Food cheese = new Food("Cheese sandwich", 63.90);
     public Food hamburger = new Food("Hamburger", 79.90);
-    public Food beer = new Food("Beer, 50cl", 79.90);
-    public Food wine = new Food("Wine, red/white", 99.90);
+    public Food beer = new Food("Beer", 79.90);
+    public Food wine = new Food("Wine", 99.90);
 
-    public Food cocaCola = new Food("Coca cola, 50cl", 49.90);
-    public Food sprite = new Food("Sprite, 50cl", 49.90);
+    public Food cocaCola = new Food("Coca cola", 49.90);
+    public Food sprite = new Food("Sprite", 49.90);
     public Food filetMignon = new Food("Filet mignon", 499.90);
     public Food beef = new Food("Kobe beef", 559.90);
     public Food lobster = new Food("Lobster platter", 599.90);
-    public Food tactical = new Food("Tactical Nuclear Penguin, 6cl", 479.90);
-    public Food domp = new Food("Dom Perignon, glass", 249.90);
+    public Food tactical = new Food("Tactical Nuclear Penguin", 479.90);
+    public Food domp = new Food("Dom Perignon", 249.90);
 
     public FoodInit() {
         economyClassMenu = new FoodMenu();
@@ -40,21 +40,21 @@ public class FoodInit {
 
     public void runInit() {
 
-        cola.setDescription("Great lasagne!\nMade in Italy!");
-        lemon.setDescription("Superb carbonara\nfrom top chefs!");
-        ham.setDescription("Savoury meatballs\nfrom sweden.");
-        cheese.setDescription("Angus beef with\nsweet barbeque\nsauce.");
+        cola.setDescription("33cl can");
+        lemon.setDescription("33cl can");
+        ham.setDescription("Ham, cheese and lettuce");
+        cheese.setDescription("Cheese and\nlettuce");
         hamburger.setDescription("Hamburger with\ncheese, lettuce,\ntomatoes and\nketchup.");
-        beer.setDescription("A proper english\nbreakfast with\nbacon, fried\ntomatoes, toast and\nscrambled\nFairTrade eggs.");
-        wine.setDescription("Just like your\nlocal cornershops\nat 3 A.M, on a\nsaturday morning!");
+        beer.setDescription("50cl bottle\n4,5%");
+        wine.setDescription("Red or white wine\nin a glass");
 
-        cocaCola.setDescription("Great lasagne!\nMade in Italy!");
-        sprite.setDescription("Superb carbonara\nfrom top chefs!");
-        filetMignon.setDescription("Savoury meatballs\nfrom sweden.");
-        beef.setDescription("Angus beef with\nsweet barbeque\nsauce.");
-        lobster.setDescription("Hamburger with\ncheese, lettuce,\ntomatoes and\nketchup.");
-        tactical.setDescription("A proper english\nbreakfast with\nbacon, fried\ntomatoes, toast and\nscrambled\nFairTrade eggs.");
-        domp.setDescription("Just like your\nlocal cornershops\nat 3 A.M, on a\nsaturday morning!");
+        cocaCola.setDescription("33cl glass bottle");
+        sprite.setDescription("50cl PET bottle");
+        filetMignon.setDescription("Prepared by\nour top chefs!");
+        beef.setDescription("Kobe beef with\nsavoury cognac\nsauce.");
+        lobster.setDescription("Fresh lobster\ncaught one hour\nbefore take-off.");
+        tactical.setDescription("A small glass\nof Brewdog beer\n6cl of 39% heaven. ");
+        domp.setDescription("Glass, 11cl");
 
         
 
