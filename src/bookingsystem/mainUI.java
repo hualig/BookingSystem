@@ -3,6 +3,8 @@ package bookingsystem;
 import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class mainUI {
 
@@ -21,6 +23,8 @@ public class mainUI {
     static Scanner scanner = new Scanner(System.in);
     static String userInput;
     static int counter = 0;
+    static SeatType typeChosen;
+    
 
     public mainUI() {
 
@@ -157,37 +161,38 @@ public class mainUI {
                     selectingClass = false;
                     break;
                 case "1":
-                    if (flight.getAvailableNoFirstClassSeat() <= 0) {
-                        System.out.println("There are no more tickets in this class. Please make another choice.");
-                        break;
-                    } else {
-                        flight.getTicketList().getList().get(counter).setSeatType(SeatType.FirstClass);
-                        flight.getTicketList().getList().get(counter).setPriceFC(20000);
+                   
+                        typeChosen = SeatType.FirstClass;
 //                        flight.setAvailableNoFirstClassSeat(=-1);
                         selectingClass = false;
                         runAssignSeat(true);
                         break;
-                    }
+              
                 case "2":
-                    if (flight.getAvailableNoEconomyClassSeat() <= 0) {
-                        System.out.println("There are no more tickets in this class. Please make another choice.");
-                        break;
-                    } else {
-                        flight.getTicketList().getList().get(counter).setSeatType(SeatType.EconomyClass);
-                        flight.getTicketList().getList().get(counter).setPriceEC(5000);
+                    
+                        typeChosen = SeatType.EconomyClass;
 //                        flight.setAvailableNoEconomyClassSeat(=-1);
                         selectingClass = false;
                         runAssignSeat(true);
                         break;
-                    }
+                
                 default:
             }
+            
+            try {
+                ticket = flight.getTicketList().searchAvailableTicket(typeChosen);
+            } catch (SeatNotFoundException ex) {
+                System.out.println("There are no more tickets in this class. Please make another choice.");
+            }
         }
+        
+        
     }
 
     static void runAssignSeat(boolean bool) {
         System.out.println("runAssignSeat");
         flight.getTicketList().getList().get(counter).setSeatNumber(Integer.toString(counter + 1));
+        
         System.out.println("Ticket.setSeatNumber(" + counter + 1 + ")");
         runSelectFood(true);
     }
@@ -282,6 +287,6 @@ static void runShowTicket(boolean bool) {
     }
 
     static void runConfirmation(boolean bool) {
-
+        ticket.getCustomer().setName(customer.getName());
     }
 }
