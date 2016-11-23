@@ -41,8 +41,10 @@ public class FoodMenu {
         
         Food foodToLookFor = new Food(name, 0.0);
         int i = list.indexOf(foodToLookFor);
+        
         if (i<0){
-            System.out.println("No food found");
+            //System.out.println("No food found");
+            
         }
         return list.get(i);
         

@@ -40,30 +40,20 @@ public class BookingFrame extends javax.swing.JFrame {
 
     private Flight customerPlane = new Flight();
 
-    private List<Flight> planeList = new ArrayList<>();
     private List<JRadioButton> flightsRadioButton = new ArrayList<>();
-    private Flight saab001;
-    private Flight saab002;
-    private Flight saab003;
+
+    List<Flight> flightList = new ArrayList<>();
+
     private double income;
     private double profit;
 
-    public BookingFrame() {
+    public BookingFrame(List<Flight> flightList) {
         runFoodInit.runInit();
         initCustomComponents();
 
         initComponents();
         jComboBox1.setSelectedIndex(0);
-
-        saab001 = new Saab();
-        saab001.setPlaneID("SAAB0001");
-        planeList.add(saab001);
-        saab002 = new Saab();
-        saab002.setPlaneID("SAAB0002");
-        planeList.add(saab002);
-        saab003 = new Saab();
-        saab003.setPlaneID("SAAB0003");
-        planeList.add(saab003);
+        this.flightList = flightList;
 
     }
 
@@ -141,8 +131,8 @@ public class BookingFrame extends javax.swing.JFrame {
         reviewPanel = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        previousButtonReviewPanel = new javax.swing.JButton();
+        payButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -676,19 +666,19 @@ public class BookingFrame extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Please review your journey:");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Previous");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        previousButtonReviewPanel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        previousButtonReviewPanel.setText("Previous");
+        previousButtonReviewPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                previousButtonReviewPanelActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("Confirm and Pay");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        payButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        payButton.setText("Confirm and Pay");
+        payButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                payButtonActionPerformed(evt);
             }
         });
 
@@ -705,9 +695,9 @@ public class BookingFrame extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(previousButtonReviewPanel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(payButton)
                 .addGap(8, 8, 8))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
@@ -725,8 +715,8 @@ public class BookingFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(previousButtonReviewPanel)
+                    .addComponent(payButton))
                 .addContainerGap())
         );
 
@@ -793,9 +783,8 @@ public class BookingFrame extends javax.swing.JFrame {
 
             newCustomer.setName(name);
             newCustomer.setiD(iD);
-            
 
-            for (Flight next : planeList) {
+            for (Flight next : flightList) {
 
                 subPlanePanel.add(new JRadioButton(next.planeID));
             }
@@ -814,27 +803,27 @@ public class BookingFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void previousButtonReviewPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousButtonReviewPanelActionPerformed
         registerPanel.setVisible(false);
         planePanel.setVisible(false);
         foodContainPanel.setVisible(true);
         reviewPanel.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_previousButtonReviewPanelActionPerformed
 
     private void FirstClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstClassButtonActionPerformed
         typeChosed = SeatType.FirstClass;
     }//GEN-LAST:event_FirstClassButtonActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        customerPlane = saab001;
+        customerPlane = flightList.get(0);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        customerPlane = saab002;
+        customerPlane = flightList.get(1);
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        customerPlane = saab003;
+        customerPlane = flightList.get(2);
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void EconomyClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EconomyClassButtonActionPerformed
@@ -886,11 +875,12 @@ public class BookingFrame extends javax.swing.JFrame {
         reviewPanel.setVisible(false);
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
 
         currentCustomerFoodList.removeAllElements();
         orderListTotalPriceLabel.setText("");
         ticket.setCustomer(newCustomer);
+        
         startPanel.setVisible(true);
         bookPanel.setVisible(false);
 
@@ -899,19 +889,16 @@ public class BookingFrame extends javax.swing.JFrame {
         foodContainPanel.setVisible(false);
         reviewPanel.setVisible(false);
 
-        
-        jTextArea1.append(customerPlane.getPlaneID() + " is ");
-        
         System.out.print("Currently total income is: ");
         income = 0d;
-        for (Flight next : planeList) {
+        for (Flight next : flightList) {
             income += next.getIncome();
         }
         System.out.println(income + " SEK");
         System.out.println("Currently total profit is: " + income * 0.3 + " SEK");
 
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_payButtonActionPerformed
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         newCustomer = new Customer();
@@ -930,20 +917,27 @@ public class BookingFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_startButtonActionPerformed
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+
         String selectedMenuItem = jList1.getSelectedValue();
-        orderListItemPriceLabel.setText(Double.toString(chosenMenu.findFoodByName(selectedMenuItem).getPrice()));
+
+        if (selectedMenuItem != null) {
+            orderListItemPriceLabel.setText(Double.toString(chosenMenu.findFoodByName(selectedMenuItem).getPrice()));
+        }
     }//GEN-LAST:event_jList1MouseClicked
 
     private void removeItemFromListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeItemFromListButtonActionPerformed
 
         String selectedMenuItem = jList1.getSelectedValue();
-        newCustomer.removeFromMyFoodList(chosenMenu.findFoodByName(selectedMenuItem));
-        currentCustomerFoodList.removeAllElements();
-        for (int i = 0; i < newCustomer.getMyFoodList().size(); i++) {
-            currentCustomerFoodList.addElement(newCustomer.getMyFoodList().get(i).getName());
+        if (selectedMenuItem != null) {
+            newCustomer.removeFromMyFoodList(chosenMenu.findFoodByName(selectedMenuItem));
+            currentCustomerFoodList.removeAllElements();
+            for (int i = 0; i < newCustomer.getMyFoodList().size(); i++) {
+                currentCustomerFoodList.addElement(newCustomer.getMyFoodList().get(i).getName());
+            }
+            orderListItemPriceLabel.setText("");
+            orderListTotalPriceLabel.setText(Double.toString(newCustomer.getFoodPrice()));
         }
-        orderListItemPriceLabel.setText("");
-        orderListTotalPriceLabel.setText(Double.toString(newCustomer.getFoodPrice()));
+
     }//GEN-LAST:event_removeItemFromListButtonActionPerformed
 
     private void clearListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearListButtonActionPerformed
@@ -957,11 +951,13 @@ public class BookingFrame extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
 
         String selectedMenuItem = (String) currentMenuCombox.getSelectedItem();
-        customersSelection = chosenMenu.findFoodByName(selectedMenuItem);
-        jTextArea3.setText(chosenMenu.findFoodByName(currentMenuCombox.getSelectedItem().toString()).getDescription());
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(currentMenuCombox.getSelectedItem().toString()));
-        menuItemPriceLabel.setText(chosenMenu.findFoodByName(currentMenuCombox.getSelectedItem().toString()).getPrice().toString());
-
+        if (selectedMenuItem != null) {
+            System.out.println(selectedMenuItem);
+            customersSelection = chosenMenu.findFoodByName(selectedMenuItem);
+            jTextArea3.setText(chosenMenu.findFoodByName(currentMenuCombox.getSelectedItem().toString()).getDescription());
+            jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(currentMenuCombox.getSelectedItem().toString()));
+            menuItemPriceLabel.setText(chosenMenu.findFoodByName(currentMenuCombox.getSelectedItem().toString()).getPrice().toString());
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void plusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plusButtonActionPerformed
@@ -1018,7 +1014,7 @@ public class BookingFrame extends javax.swing.JFrame {
         newCustomer.getMyFoodList().forEach(s -> jTextArea2.append(s + "\n"));
         jTextArea2.append("Total food price: " + newCustomer.getFoodPrice() + " SEK \n");
         jTextArea2.append("-------------\n");
-        jTextArea2.append("Total: " + (ticket.getTotalPrice()+newCustomer.getFoodPrice()) + " SEK \n");
+        jTextArea2.append("Total: " + (ticket.getTotalPrice() + newCustomer.getFoodPrice()) + " SEK \n");
 
 
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -1093,11 +1089,33 @@ public class BookingFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        List<Flight> flightList = new ArrayList<>();
+        Flight saab001;
+        Flight saab002;
+        Flight saab003;
+        saab001 = new Saab();
+        saab001.setPlaneID("SAAB0001");
+        flightList.add(saab001);
+        saab002 = new Saab();
+        saab002.setPlaneID("SAAB0002");
+        flightList.add(saab002);
+        saab003 = new Saab();
+        saab003.setPlaneID("SAAB0003");
+        flightList.add(saab003);
+
+        java.awt.EventQueue.invokeLater(new Thread(new Runnable() {
             public void run() {
-                new BookingFrame().setVisible(true);
+                new BookingFrame(flightList).setVisible(true);
+
             }
-        });
+        }));
+
+        for (Flight next : flightList) {
+            Thread flightinfo = new Thread(new FlightInformation(next));
+            flightinfo.start();
+            System.out.println("Started thread to print flight information");
+        }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1115,10 +1133,8 @@ public class BookingFrame extends javax.swing.JFrame {
     private javax.swing.JLabel iDLabel;
     private javax.swing.JTextField iDTextField;
     private javax.swing.JPanel infoPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
@@ -1163,8 +1179,10 @@ public class BookingFrame extends javax.swing.JFrame {
     private javax.swing.JTextField nameTextField;
     public javax.swing.JLabel orderListItemPriceLabel;
     public javax.swing.JLabel orderListTotalPriceLabel;
+    private javax.swing.JButton payButton;
     private javax.swing.JPanel planePanel;
     private java.awt.Button plusButton;
+    private javax.swing.JButton previousButtonReviewPanel;
     private javax.swing.JPanel registerPanel;
     private javax.swing.JButton removeItemFromListButton;
     private javax.swing.JPanel reviewPanel;

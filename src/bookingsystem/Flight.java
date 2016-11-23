@@ -8,6 +8,7 @@ package bookingsystem;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Flight {
 
@@ -26,8 +27,42 @@ public class Flight {
         return flightStatus;
     }
 
-    public void setFlight(boolean flightStatus) {
-        this.flightStatus = flightStatus;
+    public void setIsFlight() {
+
+        if (getTotalNoAvailableSeat() == 0) {
+            flightStatus = true;
+            notify();
+        } else {
+            flightStatus = false;
+        }
+
+    }
+
+    public void printFlightStatus() {
+
+        synchronized (this) {
+            System.out.println(getPlaneID() + " is waiting ...");
+
+            while (getTotalNoAvailableSeat() != 0) {
+                try {
+                    System.out.println("wait for booking");
+                    wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            System.out.println(getPlaneID() + " is take off");
+            System.out.println(getPlaneID() + " is flight ...");
+            try {
+                Thread.sleep(6000);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+            System.out.println(getPlaneID() + " is landing");
+            System.out.println(getPlaneID() + " is refuel");
+        }
+
     }
 
     public String getDestination() {
@@ -37,7 +72,7 @@ public class Flight {
     public String getPlaneID() {
         return planeID;
     }
-    
+
     public void setPlaneID(String planeID) {
         this.planeID = planeID;
     }
@@ -46,26 +81,20 @@ public class Flight {
         return ticketList;
     }
 
-    public int getAvailableNoFirstClassSeat() {
-        return noFirstClassSeat;
-    }
-
-    public int getAvailableNoEconomyClassSeat() {
-        return noEconomyClassSeat;
-    }
-
     public int getTotalNoAvailableSeat() {
-        return noFirstClassSeat + noEconomyClassSeat;
 
+        return ticketList.getList().stream().filter(s -> s.getCustomer() == null).collect(Collectors.toList()).size();
     }
-    
+
     public double getIncome() {
-        
+
         List<Double> incomeList = new ArrayList<>();
-        for(Ticket next:ticketList.getList()) {
-            if(next.getCustomer()!=null) incomeList.add(next.getTotalPrice());
+        for (Ticket next : ticketList.getList()) {
+            if (next.getCustomer() != null) {
+                incomeList.add(next.getTotalPrice());
+            }
         }
-        return incomeList.stream().reduce(0d, (a, b)->a+b);
+        return incomeList.stream().reduce(0d, (a, b) -> a + b);
     }
-    
+
 }
