@@ -1182,9 +1182,9 @@ public class BookingFrame extends javax.swing.JFrame {
         saab0003.setPlaneID("SAAB0003");
         flightList.add(saab0003);
 
-        Flight saab0004 = new Saab();
-        saab0004.setPlaneID("SAAB0004");
-        flightList.add(saab0004);
+        //Flight saab0004 = new Saab();
+        //saab0004.setPlaneID("SAAB0004");
+        //flightList.add(saab0004);
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
