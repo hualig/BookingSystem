@@ -288,5 +288,10 @@ static void runShowTicket(boolean bool) {
 
     static void runConfirmation(boolean bool) {
         ticket.getCustomer().setName(customer.getName());
+        
+        
+        
+        
+        
     }
 }
