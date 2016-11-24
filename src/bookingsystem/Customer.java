@@ -17,8 +17,6 @@ public class Customer {
     
     private String name;
     private String iD;
-    private double totalPrice;
-    private double ticketPrice;
     private double foodPrice;
     private List<Food> myFoodList = new ArrayList<>();
 
@@ -39,14 +37,7 @@ public class Customer {
     public String getiD() {
         return iD;
     }
-
-    public double getTotalPrice() {
-        
-        totalPrice = ticketPrice + foodPrice;
-        return totalPrice;
-    }
     
-
     public double getFoodPrice() {
         return foodPrice;
     }

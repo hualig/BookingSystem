@@ -13,7 +13,7 @@ public class Ticket {
     
     private double price;
     private String seatNumber;
-    private SeatType seatType;
+    private Section section;
     private Customer customer;
     
     public Ticket(){
@@ -40,12 +40,12 @@ public class Ticket {
         this.seatNumber = seatNumber;
     }
 
-    public SeatType getSeatType() {
-        return seatType;
+    public Section getSection() {
+        return section;
     }
 
-    public void setSeatType(SeatType seatType) {
-        this.seatType = seatType;
+    public void setSection(Section section) {
+        this.section = section;
     }
 
     public Customer getCustomer() {
@@ -70,7 +70,7 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "seatNumber=" + seatNumber + ", seatType=" + seatType + ", price=" 
+        return "seatNumber=" + seatNumber + ", section=" + section + ", price=" 
                 + price + "SEK, customer=" + customer + ", total price=" 
                 + getTotalPrice() + "SEK \n";
     }

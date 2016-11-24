@@ -9,6 +9,6 @@ package bookingsystem;
  *
  * @author User
  */
-public enum SeatType {
+public enum Section {
     FirstClass, EconomyClass,
 }
