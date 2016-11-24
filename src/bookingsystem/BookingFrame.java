@@ -776,7 +776,7 @@ public class BookingFrame extends javax.swing.JFrame {
         iD = iDTextField.getText();
 
         if (name.equals("") || iD.equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Name and person number can't be empty!");
+            JOptionPane.showMessageDialog(rootPane, "Name and ID number can't be empty!");
         } else {
 
             newCustomer.setName(name);
