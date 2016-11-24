@@ -7,7 +7,6 @@ package bookingsystem;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  *
@@ -28,13 +27,13 @@ public class TicketList {
         while(i<(noFirstClassSeat+noEconomyClassSeat)){
             if(i < noFirstClassSeat) {
                 Ticket ticketFC = new Ticket();
-                ticketFC.setPriceFC(20000);
+                ticketFC.setPrice(20000);
                 ticketFC.setSeatNumber(Integer.toString((i+1)));
                 ticketFC.setSeatType(SeatType.FirstClass);
                 ticketList.add(ticketFC);
             } else {
                 Ticket ticketEC = new Ticket();
-                ticketEC.setPriceEC(5000);
+                ticketEC.setPrice(5000);
                 ticketEC.setSeatNumber(Integer.toString((i+1)));
                 ticketEC.setSeatType(SeatType.EconomyClass);
                 ticketList.add(ticketEC);

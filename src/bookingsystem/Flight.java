@@ -6,9 +6,9 @@
 package bookingsystem;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.swing.JTextArea;
 
 public class Flight {
 
@@ -29,38 +29,41 @@ public class Flight {
 
     public void setIsFlight() {
 
-        if (getTotalNoAvailableSeat() == 0) {
-            flightStatus = true;
-            notify();
-        } else {
-            flightStatus = false;
+        synchronized (this) {
+            if (getTotalNoAvailableSeat() == 0) {
+                flightStatus = true;
+                notifyAll();
+            } else {
+                flightStatus = false;
+            }
         }
 
     }
 
-    public void printFlightStatus() {
+    public void printFlightStatus(JTextArea jTextArea) {
 
         synchronized (this) {
-            System.out.println(getPlaneID() + " is waiting ...");
+            jTextArea.append(getPlaneID() + ": waiting at port \n");
 
             while (getTotalNoAvailableSeat() != 0) {
                 try {
-                    System.out.println("wait for booking");
                     wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
             }
-            System.out.println(getPlaneID() + " is take off");
-            System.out.println(getPlaneID() + " is flight ...");
+            jTextArea.append(getPlaneID() + ": take off\n");
+            jTextArea.append(getPlaneID() + ": in flight\n");
             try {
-                Thread.sleep(6000);
+                Thread.sleep(60000);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
-            System.out.println(getPlaneID() + " is landing");
-            System.out.println(getPlaneID() + " is refuel");
+            jTextArea.append(getPlaneID() + ": landing\n");
+            resetFlight();
+            setIsFlight();
+            jTextArea.append(getPlaneID() + ": refuel\n");
         }
 
     }
@@ -95,6 +98,12 @@ public class Flight {
             }
         }
         return incomeList.stream().reduce(0d, (a, b) -> a + b);
+    }
+    
+    public void resetFlight(){
+        for(Ticket next:ticketList.getList()) {
+            next.delCustomer();
+        }
     }
 
 }

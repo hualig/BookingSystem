@@ -5,6 +5,8 @@
  */
 package bookingsystem;
 
+import javax.swing.JTextArea;
+
 /**
  *
  * @author User
@@ -12,15 +14,17 @@ package bookingsystem;
 public class FlightInformation implements Runnable {
 
     Flight flight;
+    JTextArea jTextArea;
 
-    public FlightInformation(Flight flight) {
+    public FlightInformation(Flight flight, JTextArea jTextArea) {
         this.flight = flight;
+        this.jTextArea = jTextArea;
     }
 
     @Override
     public void run() {
         while (true) {
-            flight.printFlightStatus();
+            flight.printFlightStatus(jTextArea);
         }
     }
 
