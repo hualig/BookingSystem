@@ -21,6 +21,7 @@ public class TicketList {
         
     }
     
+       
     public TicketList(int noFirstClassSeat, int noEconomyClassSeat){
         ticketList = new ArrayList<>(); 
         int i= 0;

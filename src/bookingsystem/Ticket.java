@@ -18,7 +18,8 @@ public class Ticket {
     
     public Ticket(){
         
-    }
+    }    
+
     public Ticket(double price, String seatNumber){
         this.price = price;
         this.seatNumber = seatNumber;
