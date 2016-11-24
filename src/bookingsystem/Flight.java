@@ -88,17 +88,6 @@ public class Flight {
 
         return ticketList.getList().stream().filter(s -> s.getCustomer() == null).collect(Collectors.toList()).size();
     }
-
-    public double getIncome() {
-
-        List<Double> incomeList = new ArrayList<>();
-        for (Ticket next : ticketList.getList()) {
-            if (next.getCustomer() != null) {
-                incomeList.add(next.getTotalPrice());
-            }
-        }
-        return incomeList.stream().reduce(0d, (a, b) -> a + b);
-    }
     
     public void resetFlight(){
         for(Ticket next:ticketList.getList()) {

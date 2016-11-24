@@ -29,13 +29,13 @@ public class TicketList {
                 Ticket ticketFC = new Ticket();
                 ticketFC.setPrice(20000);
                 ticketFC.setSeatNumber(Integer.toString((i+1)));
-                ticketFC.setSection(Section.FirstClass);
+                ticketFC.setSection(Section.First);
                 ticketList.add(ticketFC);
             } else {
                 Ticket ticketEC = new Ticket();
                 ticketEC.setPrice(5000);
                 ticketEC.setSeatNumber(Integer.toString((i+1)));
-                ticketEC.setSection(Section.EconomyClass);
+                ticketEC.setSection(Section.Economy);
                 ticketList.add(ticketEC);
             }
             i++;

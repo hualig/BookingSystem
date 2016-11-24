@@ -162,7 +162,7 @@ public class mainUI {
                     break;
                 case "1":
                    
-                        typeChosen = Section.FirstClass;
+                        typeChosen = Section.First;
 //                        flight.setAvailableNoFirstClassSeat(=-1);
                         selectingClass = false;
                         runAssignSeat(true);
@@ -170,7 +170,7 @@ public class mainUI {
               
                 case "2":
                     
-                        typeChosen = Section.EconomyClass;
+                        typeChosen = Section.Economy;
 //                        flight.setAvailableNoEconomyClassSeat(=-1);
                         selectingClass = false;
                         runAssignSeat(true);
@@ -283,6 +283,7 @@ public class mainUI {
 
 static void runShowTicket(boolean bool) {
     System.out.println("TBI.runShowTicket.TBI");
+    
 
     }
 

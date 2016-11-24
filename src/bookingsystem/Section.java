@@ -10,5 +10,6 @@ package bookingsystem;
  * @author User
  */
 public enum Section {
-    FirstClass, EconomyClass,
+    First, Economy,
+    
 }
