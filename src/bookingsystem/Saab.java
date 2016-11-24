@@ -5,8 +5,6 @@
  */
 package bookingsystem;
 
-import java.util.HashMap;
-
 /**
  *
  * @author User
@@ -14,10 +12,8 @@ import java.util.HashMap;
 public class Saab extends Flight {
 
 
-
     public Saab() {
         destination = "Barcelona";
-        planeID = "1234";
         noFirstClassSeat = 5;
         noEconomyClassSeat = 5;
         ticketList = new TicketList(noFirstClassSeat, noEconomyClassSeat);

@@ -6,7 +6,6 @@
 package bookingsystem;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.swing.JTextArea;
@@ -44,7 +43,7 @@ public class Flight {
     public void printFlightStatus(JTextArea jTextArea) {
 
         synchronized (this) {
-            jTextArea.append(getPlaneID() + ": waiting ... \n");
+            jTextArea.append(getPlaneID() + ": waiting at port \n");
 
             while (getTotalNoAvailableSeat() != 0) {
                 try {
@@ -55,7 +54,7 @@ public class Flight {
 
             }
             jTextArea.append(getPlaneID() + ": take off\n");
-            jTextArea.append(getPlaneID() + ": flight ...\n");
+            jTextArea.append(getPlaneID() + ": in flight\n");
             try {
                 Thread.sleep(60000);
             } catch (InterruptedException ex) {

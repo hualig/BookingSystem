@@ -28,11 +28,7 @@ public class Ticket {
         return price;
     }
 
-    public void setPriceFC(double price) {
-        this.price = price;
-    }
-    
-    public void setPriceEC(double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
