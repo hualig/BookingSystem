@@ -36,6 +36,14 @@ public class FoodInit {
         economyClassMenu.addFoodItem(hamburger);
         economyClassMenu.addFoodItem(beer);
         economyClassMenu.addFoodItem(wine);
+        
+        firstClassMenu.addFoodItem(cocaCola);
+        firstClassMenu.addFoodItem(sprite);
+        firstClassMenu.addFoodItem(filetMignon);
+        firstClassMenu.addFoodItem(beef);
+        firstClassMenu.addFoodItem(lobster);
+        firstClassMenu.addFoodItem(tactical);
+        firstClassMenu.addFoodItem(domp);
     }
 
     public void runInit() {
@@ -58,13 +66,7 @@ public class FoodInit {
 
         
 
-        firstClassMenu.addFoodItem(cocaCola);
-        firstClassMenu.addFoodItem(sprite);
-        firstClassMenu.addFoodItem(filetMignon);
-        firstClassMenu.addFoodItem(beef);
-        firstClassMenu.addFoodItem(lobster);
-        firstClassMenu.addFoodItem(tactical);
-        firstClassMenu.addFoodItem(domp);
+        
     }
 
 }
