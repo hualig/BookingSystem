@@ -10,6 +10,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -46,11 +47,10 @@ public class BookingFrame extends javax.swing.JFrame {
 
     List<Flight> flightList = new ArrayList<>();
 
-    private NumberFormat nf = NumberFormat.getCurrencyInstance();
+    Locale swedish = new Locale("swe", "se");
+    private final NumberFormat nf = NumberFormat.getCurrencyInstance(swedish);
     private double income = 0d;
-    private double profit;
     private JRadioButton[] flightRadioButton;
-    private int icount = 0;
 
     public BookingFrame(List<Flight> flightList) {
         runFoodInit.runInit();
