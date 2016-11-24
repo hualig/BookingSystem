@@ -23,7 +23,7 @@ public class mainUI {
     static Scanner scanner = new Scanner(System.in);
     static String userInput;
     static int counter = 0;
-    static SeatType typeChosen;
+    static Section typeChosen;
     
 
     public mainUI() {
@@ -162,7 +162,7 @@ public class mainUI {
                     break;
                 case "1":
                    
-                        typeChosen = SeatType.FirstClass;
+                        typeChosen = Section.FirstClass;
 //                        flight.setAvailableNoFirstClassSeat(=-1);
                         selectingClass = false;
                         runAssignSeat(true);
@@ -170,7 +170,7 @@ public class mainUI {
               
                 case "2":
                     
-                        typeChosen = SeatType.EconomyClass;
+                        typeChosen = Section.EconomyClass;
 //                        flight.setAvailableNoEconomyClassSeat(=-1);
                         selectingClass = false;
                         runAssignSeat(true);

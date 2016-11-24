@@ -8,7 +8,6 @@ package bookingsystem;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.swing.DefaultComboBoxModel;
@@ -40,7 +39,7 @@ public class BookingFrame extends javax.swing.JFrame {
     private Ticket ticket;
 
     private Customer newCustomer = new Customer();
-    private SeatType typeChosen;
+    private Section typeChosen;
 
     private Flight customerPlane = new Flight();
 
@@ -809,11 +808,11 @@ public class BookingFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_previousButtonReviewPanelActionPerformed
 
     private void firstClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstClassButtonActionPerformed
-        typeChosen = SeatType.FirstClass;
+        typeChosen = Section.FirstClass;
     }//GEN-LAST:event_firstClassButtonActionPerformed
 
     private void economyClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_economyClassButtonActionPerformed
-        typeChosen = SeatType.EconomyClass;
+        typeChosen = Section.EconomyClass;
     }//GEN-LAST:event_economyClassButtonActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -918,13 +917,13 @@ public class BookingFrame extends javax.swing.JFrame {
                 customerPlane = flightList.get(Arrays.asList(flightRadioButton).indexOf(currentRadioButton));
                 double ticketPrice=0d;
                 for(Ticket next:customerPlane.getTicketList().getList()){
-                    if(next.getSeatType()==SeatType.FirstClass){
+                    if(next.getSection()==Section.FirstClass){
                         ticketPrice = next.getPrice();
                     }
                 }
                 firstClassButton.setText("First Class: " + ticketPrice + "SEK");
                 for(Ticket next:customerPlane.getTicketList().getList()){
-                    if(next.getSeatType()==SeatType.EconomyClass){
+                    if(next.getSection()==Section.EconomyClass){
                         ticketPrice = next.getPrice();
                     }
                 }
@@ -1028,7 +1027,7 @@ public class BookingFrame extends javax.swing.JFrame {
         jTextArea2.append("Name: " + newCustomer.getName() + "\n");
         jTextArea2.append("ID Number: " + newCustomer.getiD() + "\n");
         jTextArea2.append("Fight: " + customerPlane.getPlaneID() + "\n");
-        jTextArea2.append("Seat number: " + ticket.getSeatType() + " " + ticket.getSeatNumber() + "\n");
+        jTextArea2.append("Seat number: " + ticket.getSection() + " " + ticket.getSeatNumber() + "\n");
         jTextArea2.append("Price: " + ticket.getPrice() + " SEK \n");
         jTextArea2.append("Reserved food : \n");
         newCustomer.getMyFoodList().forEach(s -> jTextArea2.append(s + "\n"));

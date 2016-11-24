@@ -29,13 +29,13 @@ public class TicketList {
                 Ticket ticketFC = new Ticket();
                 ticketFC.setPrice(20000);
                 ticketFC.setSeatNumber(Integer.toString((i+1)));
-                ticketFC.setSeatType(SeatType.FirstClass);
+                ticketFC.setSection(Section.FirstClass);
                 ticketList.add(ticketFC);
             } else {
                 Ticket ticketEC = new Ticket();
                 ticketEC.setPrice(5000);
                 ticketEC.setSeatNumber(Integer.toString((i+1)));
-                ticketEC.setSeatType(SeatType.EconomyClass);
+                ticketEC.setSection(Section.EconomyClass);
                 ticketList.add(ticketEC);
             }
             i++;
@@ -46,10 +46,10 @@ public class TicketList {
         return ticketList;
     }
     
-    public Ticket searchAvailableTicket(SeatType seatType) throws SeatNotFoundException{
+    public Ticket searchAvailableTicket(Section section) throws SeatNotFoundException{
         
         for(Ticket next:ticketList) {
-            if(next.getSeatType() == seatType && next.getCustomer() == null) return next;
+            if(next.getSection() == section && next.getCustomer() == null) return next;
         }
         
         throw new SeatNotFoundException();
