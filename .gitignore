@@ -13,3 +13,6 @@ hs_err_pid*
 /nbproject/private/
 /build/
 /dist/
+
+# files produced by Mac system
+.DS_Store
